@@ -1,0 +1,6 @@
+node_modules/
+newrelic_agent.log
+*.production
+.env.development
+.env.uat
+.env.production

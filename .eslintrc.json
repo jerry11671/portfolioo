@@ -1,0 +1,22 @@
+{
+    "env": {
+        "node": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+      "no-useless-escape": "off",
+      "no-console": "warn",
+      "no-empty-function": "error",
+      "no-eq-null": "error",
+      "prefer-const": "warn",
+      "yoda": ["error", "never", { "exceptRange": true }],
+      "no-unneeded-ternary": "warn",
+      "no-undefined": "error",
+      "no-undef-init": "error"
+    }
+}

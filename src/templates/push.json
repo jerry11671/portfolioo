@@ -1,0 +1,8 @@
+{
+    "title": {
+      "withdraw_success": "Transfer Successful 💸"
+    },
+    "description": {
+         "withdraw_success": "Your ₦{{amount}} transfer was successful"
+    }
+}
