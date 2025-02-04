@@ -1,6 +1,5 @@
-const axios = require("axios");
-
 const bcrypt = require("bcrypt");
+
 const { listToCsv } = require("../utils/listToCsv");
 const { redisClient, redisCache } = require("../thirdParty/redis");
 const randomstring = require("randomstring");
@@ -269,8 +268,6 @@ const lib = {
 
       if (!update_member) throw new AppError(500, "Internal server error.");
 
-  
-
       return update_member;
     } catch (error) {
       if (error instanceof AppError) {
@@ -379,17 +376,6 @@ const lib = {
         throw new AppError(500, "Internal server error.");
       }
     }
-  },
-
-  async readRedis() {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/photos`
-      );
-      return response.data;
-    };
-
-    return await lib.getOrSetCache("photos", fetchData);
   },
 };
 

@@ -144,146 +144,162 @@ const lib = {
   },
 
   async checkNotificationAvailablility(params) {
-    let count_unread;
+    try {
+      let count_unread;
 
-    const query = {};
+      const query = {};
 
-    query["is_read"] = false;
+      query["is_read"] = false;
 
-    if (params.user.type == "Admin") {
-      count_unread = await notificationModel.countDocuments({
-        ...query,
-        admin_id: params.user._id,
-      });
+      if (params.user.type == "Admin") {
+        count_unread = await notificationModel.countDocuments({
+          ...query,
+          admin_id: params.user._id,
+        });
+      }
+
+      if (params.user.type == "User") {
+        count_unread = await notificationModel.countDocuments({
+          ...query,
+          user_id: params.user._id,
+        });
+      }
+
+      let is_available;
+
+      if (count_unread >= 1) {
+        is_available = true;
+      } else {
+        is_available = false;
+      }
+
+      return {
+        is_available,
+        count: count_unread,
+      };
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
     }
-
-    if (params.user.type == "User") {
-      count_unread = await notificationModel.countDocuments({
-        ...query,
-        user_id: params.user._id,
-      });
-    }
-
-    let is_available;
-
-    if (count_unread >= 1) {
-      is_available = true;
-    } else {
-      is_available = false;
-    }
-
-    return {
-      is_available,
-      count: count_unread,
-    };
   },
 
   async read(params) {
-    /* eslint-disable prefer-const */
-    let {
-      pageNo,
-      limitNo,
-      filter = "date",
-      order = "-1",
-      fromDate,
-      toDate,
-      search,
-    } = params;
-    /* eslint-disable prefer-const */
+    try {
+      /* eslint-disable prefer-const */
+      let {
+        pageNo,
+        limitNo,
+        filter = "date",
+        order = "-1",
+        fromDate,
+        toDate,
+        search,
+      } = params;
+      /* eslint-disable prefer-const */
 
-    pageNo = pageNo ? +pageNo : 1;
-    limitNo = limitNo ? +limitNo : 10;
+      pageNo = pageNo ? +pageNo : 1;
+      limitNo = limitNo ? +limitNo : 10;
 
-    const sort = { $sort: { date: -1 } };
-    const query = {};
+      const sort = { $sort: { date: -1 } };
+      const query = {};
 
-    if (params.user.type == "Admin") {
-      query["admin_id"] = mongoose.Types.ObjectId(params.user._id);
-    }
-
-    if (params.user.type == "User") {
-      query["user_id"] = mongoose.Types.ObjectId(params.user._id);
-    }
-
-    if (filter) {
-      if (!order) order = 1;
-      sort["$sort"][filter] = parseInt(order);
-    }
-
-    if (fromDate && toDate) {
-      fromDate = new Date(fromDate) || new Date(null);
-      toDate = new Date(toDate) || new Date(null);
-      query["createdAt"] = {
-        $gte: fromDate,
-        $lte: new Date(toDate.getTime() + 86399999),
-      };
-    }
-
-    const pipeline = [
-      { $match: query },
-      {
-        $project: {
-          date: "$createdAt",
-          admin_id: 1,
-          user_id: 1,
-          is_read: 1,
-          title: 1,
-          description: 1,
-        },
-      },
-      // partial and full word search
-      // search also works on joint collection
-      // returns empty list if no match
-      ...(search
-        ? [
-            {
-              $match: {
-                $or: [
-                  { title: new RegExp(search, "i") },
-                  { description: new RegExp(search, "i") },
-                ],
-              },
-            },
-          ]
-        : []),
-      sort,
-    ];
-
-    let notifications;
-
-    notifications = await notificationModel.aggregate([
-      ...pipeline,
-      {
-        $facet: {
-          metadata: [
-            { $count: "total" },
-            {
-              $addFields: {
-                page: pageNo,
-                limit: limitNo,
-                pages: { $ceil: { $divide: ["$total", limitNo] } },
-              },
-            },
-          ],
-          data: [{ $skip: pageNo * limitNo - limitNo }, { $limit: limitNo }],
-        },
-      },
-      {
-        $addFields: {
-          metadata: { $arrayElemAt: ["$metadata", 0] },
-        },
-      },
-    ]);
-
-    // mark notifications as read
-    await notificationModel.updateMany(
-      { ...query },
-      {
-        is_read: true,
+      if (params.user.type == "Admin") {
+        query["admin_id"] = mongoose.Types.ObjectId(params.user._id);
       }
-    );
 
-    return notifications;
+      if (params.user.type == "User") {
+        query["user_id"] = mongoose.Types.ObjectId(params.user._id);
+      }
+
+      if (filter) {
+        if (!order) order = 1;
+        sort["$sort"][filter] = parseInt(order);
+      }
+
+      if (fromDate && toDate) {
+        fromDate = new Date(fromDate) || new Date(null);
+        toDate = new Date(toDate) || new Date(null);
+        query["createdAt"] = {
+          $gte: fromDate,
+          $lte: new Date(toDate.getTime() + 86399999),
+        };
+      }
+
+      const pipeline = [
+        { $match: query },
+        {
+          $project: {
+            date: "$createdAt",
+            admin_id: 1,
+            user_id: 1,
+            is_read: 1,
+            title: 1,
+            description: 1,
+          },
+        },
+        // partial and full word search
+        // search also works on joint collection
+        // returns empty list if no match
+        ...(search
+          ? [
+              {
+                $match: {
+                  $or: [
+                    { title: new RegExp(search, "i") },
+                    { description: new RegExp(search, "i") },
+                  ],
+                },
+              },
+            ]
+          : []),
+        sort,
+      ];
+
+      let notifications;
+
+      notifications = await notificationModel.aggregate([
+        ...pipeline,
+        {
+          $facet: {
+            metadata: [
+              { $count: "total" },
+              {
+                $addFields: {
+                  page: pageNo,
+                  limit: limitNo,
+                  pages: { $ceil: { $divide: ["$total", limitNo] } },
+                },
+              },
+            ],
+            data: [{ $skip: pageNo * limitNo - limitNo }, { $limit: limitNo }],
+          },
+        },
+        {
+          $addFields: {
+            metadata: { $arrayElemAt: ["$metadata", 0] },
+          },
+        },
+      ]);
+
+      // mark notifications as read
+      await notificationModel.updateMany(
+        { ...query },
+        {
+          is_read: true,
+        }
+      );
+
+      return notifications;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
   },
 
   async delete(params) {

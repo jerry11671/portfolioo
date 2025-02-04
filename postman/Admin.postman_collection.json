@@ -1,0 +1,3316 @@
+{
+	"info": {
+		"_postman_id": "3cdb5ad9-0df5-4889-98a7-ac6c8916a010",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10431360"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "ForgotPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/forgot-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"forgot-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 11:25:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"adminexample@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-Ecrm/z/cl8OLOB5yNaKumfQ/pdQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 11:27:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 404,\n    \"message\": \"Account not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ResendResetPasswordCode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/forgot-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"forgot-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 11:25:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"adminexample@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-Ecrm/z/cl8OLOB5yNaKumfQ/pdQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 11:27:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 404,\n    \"message\": \"Account not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ValidateResetPasswordCode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"verification_code\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/validate-reset-password-code",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"validate-reset-password-code"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"verification_code\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/validate-reset-password-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"validate-reset-password-code"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 11:40:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"verification_code\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/validate-reset-password-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"validate-reset-password-code"
+									]
+								}
+							},
+							"status": "unknown",
+							"code": 498,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-aHzhn1ZLORxbh4B6QKw5Og5tb8U\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 11:39:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 498,\n    \"message\": \"OTP Expired.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ResetPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"verification_code\": \"1234\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/reset-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"reset-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"verification_code\": \"1234\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/reset-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 12:02:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"verification_code\": \"1235\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/reset-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"reset-password"
+									]
+								}
+							},
+							"status": "unknown",
+							"code": 498,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-WVZjB0VS7IbQqWyN/MxERAqLDR0\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 12:02:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 498,\n    \"message\": \"Invalid OTP.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"jwt\", pm.response.json().data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"password\": \"Password123$$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "753"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f1-VcQzpOQcR5szTa8gHkSTF1tS6jk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 10:44:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"user\": {\n            \"status\": true,\n            \"is_archived\": false,\n            \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n            \"type\": \"Admin\",\n            \"role\": \"Super Admin\",\n            \"_id\": \"673308c2c43758b95308f69a\",\n            \"first_name\": \"Super\",\n            \"last_name\": \"Admin\",\n            \"email\": \"admin.example@yopmail.com\",\n            \"password\": null,\n            \"createdAt\": \"2024-11-12T10:34:22.983Z\",\n            \"updatedAt\": \"2025-01-19T09:43:09.008Z\",\n            \"__v\": 0,\n            \"num\": 1\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXJyZW50VXNlciI6eyJfaWQiOiI2NzMzMDhjMmM0Mzc1OGI5NTMwOGY2OWEiLCJlbWFpbCI6ImFkbWluLmV4YW1wbGVAeW9wbWFpbC5jb20iLCJzdGF0dXMiOnRydWUsInR5cGUiOiJBZG1pbiIsInJvbGUiOiJTdXBlciBBZG1pbiJ9LCJpYXQiOjE3MzczNjk4NDIsImV4cCI6MTczOTk2MTg0Mn0.SYobrG-5mD0SYOXwK5ZMuG8JP67wT4WGJ9TGJnMkm7c\"\n    }\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\",\r\n    \"password\": \"Password123$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-Ee6K4sBjsM2hVCM9uaf2tJX/phQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 10:49:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 400,\n    \"message\": \"Incorrect login credentials. Please check and try again.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\": \"Password123$$\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/change-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"change-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"current_password\": \"Password123$$\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/change-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"change-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 12:53:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"current_password\": \"Password1234$$\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/change-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"change-password"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-lJi1hTjHRpG1TCIQhO5RfsMoN3A\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 12:52:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 400,\n    \"message\": \"Current password is incorrect.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "AddTeamMember",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"email\": \"john.doe@yopmail.com\",\r\n    \"role\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"email\": \"john.doe@yopmail.com\",\r\n    \"role\": \"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-7f2kf3D8mU2SP12SlJgJ5hX31M0\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:18:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"email\": \"admin.example@yopmail.com\",\r\n    \"role\": \"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-p0ID/3YLbJYBfdGmIdex1mnnq0Q\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:12:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 409,\n    \"message\": \"An account with this email already exists.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ListTeam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "suspended",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "Admin",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "joh",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "date",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "-1",
+									"disabled": true
+								},
+								{
+									"key": "download",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "columns",
+									"value": "name,email,role,status",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-I2R18d64Jh2Qmhegz/xrSobFvuM\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:21:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            },\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?status=suspended",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended"
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:22:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "role",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?role=Admin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin"
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:22:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?search=joh",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh"
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:24:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "order: DESC",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?filter=date&order=-1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date"
+										},
+										{
+											"key": "order",
+											"value": "-1"
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-I2R18d64Jh2Qmhegz/xrSobFvuM\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:25:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            },\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "order: ASEC",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?filter=date&order=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date"
+										},
+										{
+											"key": "order",
+											"value": "1"
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-apNcwPKOvXdRFo0S53qnEiFMvaw\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:25:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            },\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "CSV",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users?download=true&columns=name,email,role,status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true"
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/csv; charset=utf-8"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=\"team.csv\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"97-dHpjkJxU3FHl9XRz9I+LKpgmzhA\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:26:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Name\",\"Email\",\"Role\",\"Status\"\r\n\"John Doe\",\"john.doe@yopmail.com\",\"Admin\",\"Suspended\"\r\n\"Super Admin\",\"admin.example@yopmail.com\",\"Super Admin\",\"Active\""
+						}
+					]
+				},
+				{
+					"name": "ViewMember",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "395"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18b-iozBPrpMQg1bmLZvp4uAvlyUalA\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:49:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": true,\n        \"is_archived\": false,\n        \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n        \"type\": \"Admin\",\n        \"role\": \"Admin\",\n        \"_id\": \"678e5ff3d05382015810317e\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"john.doe@yopmail.com\",\n        \"createdAt\": \"2025-01-20T14:38:43.479Z\",\n        \"updatedAt\": \"2025-01-20T14:38:43.479Z\",\n        \"num\": 2,\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-q7JB15CIZ9zF8FuD34VQZQfPqac\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:49:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 404,\n    \"message\": \"Record not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateMember",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:57:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SuspendMember",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{id}}/update-status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{id}}",
+								"update-status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/{{id}}/update-status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"{{id}}",
+										"update-status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:11:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ActivateMember",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{id}}/update-status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{id}}",
+								"update-status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/{{id}}/update-status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"{{id}}",
+										"update-status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:19:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/me",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "409"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"199-b65b18Pf+xwPxA3eUGDekwJye3k\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Jan 2025 13:36:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": true,\n        \"is_archived\": false,\n        \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n        \"type\": \"Admin\",\n        \"role\": \"Super Admin\",\n        \"_id\": \"673308c2c43758b95308f69a\",\n        \"first_name\": \"Super\",\n        \"last_name\": \"Admin\",\n        \"email\": \"admin.example@yopmail.com\",\n        \"createdAt\": \"2024-11-12T10:34:22.983Z\",\n        \"updatedAt\": \"2025-01-20T12:55:47.270Z\",\n        \"__v\": 0,\n        \"num\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UploadFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/C:/Users/SGS 4/Desktop/profile.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/files",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"files"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/SGS 4/Desktop/profile.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/files",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b7-ttk0XKg7NsoVusalZ5l5XPc4oSI\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Jan 2025 12:29:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": [\n        {\n            \"src\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/557706_profile.jpg\",\n            \"title\": \"profile.jpg\",\n            \"type\": \"image\",\n            \"size\": \"0.01 MB\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Trails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/trails",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"trails"
+					],
+					"query": [
+						{
+							"key": "admin_id",
+							"value": "673308c2c43758b95308f69a",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "pass",
+							"disabled": true
+						},
+						{
+							"key": "filter",
+							"value": "date",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "download",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "columns",
+							"value": "date,name,action",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trails",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trails"
+							],
+							"query": [
+								{
+									"key": "admin_id",
+									"value": "673308c2c43758b95308f69a",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "pass",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "date",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "-1",
+									"disabled": true
+								},
+								{
+									"key": "download",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "columns",
+									"value": "date,name,action",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"af1-uodd84SL+EOK401FtRNPa69dWXs\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 14:28:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 17,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 2\n        },\n        \"data\": [\n            {\n                \"_id\": \"678fa037935dc730208df7b7\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 13:25\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678fa062935dc730208df7bd\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 13:25\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5d83b2a34b26cc711e2e\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:40\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5d90b2a34b26cc711e32\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:40\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5ca4c54dc839b876892c\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:36\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5c5ec54dc839b8768926\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:35\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5c2fc54dc839b8768922\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:34\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5b59c54dc839b876891c\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:31\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5ab0c54dc839b8768916\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:28\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e69b927452e29ccdf0235\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 15:20\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Suspended a team member.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e/update-status\",\n                \"method\": \"PATCH\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "success: admin_id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trails?admin_id=673308c2c43758b95308f69a",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trails"
+							],
+							"query": [
+								{
+									"key": "admin_id",
+									"value": "673308c2c43758b95308f69a"
+								},
+								{
+									"key": "search",
+									"value": "pass",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "date",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "-1",
+									"disabled": true
+								},
+								{
+									"key": "download",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "columns",
+									"value": "date,name,action",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"af1-uodd84SL+EOK401FtRNPa69dWXs\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 14:29:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 17,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 2\n        },\n        \"data\": [\n            {\n                \"_id\": \"678fa037935dc730208df7b7\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 13:25\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678fa062935dc730208df7bd\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 13:25\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5d83b2a34b26cc711e2e\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:40\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5d90b2a34b26cc711e32\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:40\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5ca4c54dc839b876892c\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:36\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5c5ec54dc839b8768926\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:35\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5c2fc54dc839b8768922\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:34\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5b59c54dc839b876891c\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:31\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5ab0c54dc839b8768916\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:28\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e69b927452e29ccdf0235\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 15:20\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Suspended a team member.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e/update-status\",\n                \"method\": \"PATCH\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "success: search",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trails?search=pass",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trails"
+							],
+							"query": [
+								{
+									"key": "admin_id",
+									"value": "673308c2c43758b95308f69a",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "pass"
+								},
+								{
+									"key": "filter",
+									"value": "date",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "-1",
+									"disabled": true
+								},
+								{
+									"key": "download",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "columns",
+									"value": "date,name,action",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "363"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16b-xcCEqizuIHD9Ttn8A6z7SE8TsVk\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 14:30:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5447a9820b330c535c0a\",\n                \"resource\": \"auths\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 13:48\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Changed their password.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/auths/change-password\",\n                \"method\": \"PATCH\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "order: DESC",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trails?filter=date&order=-1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trails"
+							],
+							"query": [
+								{
+									"key": "admin_id",
+									"value": "673308c2c43758b95308f69a",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "pass",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "date"
+								},
+								{
+									"key": "order",
+									"value": "-1"
+								},
+								{
+									"key": "download",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "columns",
+									"value": "date,name,action",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"af1-uodd84SL+EOK401FtRNPa69dWXs\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 14:31:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 17,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 2\n        },\n        \"data\": [\n            {\n                \"_id\": \"678fa037935dc730208df7b7\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 13:25\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678fa062935dc730208df7bd\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 13:25\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5d83b2a34b26cc711e2e\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:40\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5d90b2a34b26cc711e32\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:40\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5ca4c54dc839b876892c\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:36\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5c5ec54dc839b8768926\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:35\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5c2fc54dc839b8768922\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:34\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5b59c54dc839b876891c\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:31\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5ab0c54dc839b8768916\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:28\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e69b927452e29ccdf0235\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 15:20\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Suspended a team member.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e/update-status\",\n                \"method\": \"PATCH\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "order: ASEC",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trails?filter=date&order=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trails"
+							],
+							"query": [
+								{
+									"key": "admin_id",
+									"value": "673308c2c43758b95308f69a",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "pass",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "date"
+								},
+								{
+									"key": "order",
+									"value": "1"
+								},
+								{
+									"key": "download",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "columns",
+									"value": "date,name,action",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ac8-2UuiysNlOaX1LZPzHuEo5EfgpDk\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 14:32:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 17,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 2\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5447a9820b330c535c0a\",\n                \"resource\": \"auths\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 13:48\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Changed their password.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/auths/change-password\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e5ff4d053820158103182\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 14:38\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Added a new team member.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users\",\n                \"method\": \"POST\"\n            },\n            {\n                \"_id\": \"678e645a12826d00883d0613\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 14:57\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e648f12826d00883d0618\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 14:58\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e649c12826d00883d061d\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 14:58\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e697927452e29ccdf022b\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 15:19\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Suspended a team member.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e/update-status\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e699927452e29ccdf0230\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 15:19\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Activated a team member.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e/update-status\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678e69b927452e29ccdf0235\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"20-01-2025 15:20\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Suspended a team member.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e/update-status\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5ab0c54dc839b8768916\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:28\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            },\n            {\n                \"_id\": \"678f5b59c54dc839b876891c\",\n                \"resource\": \"admins\",\n                \"admin_id\": \"673308c2c43758b95308f69a\",\n                \"date\": \"21-01-2025 08:31\",\n                \"name\": \"Super Admin\",\n                \"operation\": \"Updated a team member's profile.\",\n                \"ip\": \"::1\",\n                \"url\": \"/api/v1/admin/users/678e5ff3d05382015810317e\",\n                \"method\": \"PATCH\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "CSV",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trails?download=true&columns=date,name,action",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trails"
+							],
+							"query": [
+								{
+									"key": "admin_id",
+									"value": "673308c2c43758b95308f69a",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "pass",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "date",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "download",
+									"value": "true"
+								},
+								{
+									"key": "columns",
+									"value": "date,name,action"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/csv; charset=utf-8"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename=\"trails.csv\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "617"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"269-HYbA0n0EU+Kle3u5lvoxrzpS4xc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 14:32:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"Date\",\"Name\",\"Action\"\r\n\"21-01-2025 13:25\",\"Super Admin\",\r\n\"21-01-2025 13:25\",\"Super Admin\",\r\n\"21-01-2025 08:40\",\"Super Admin\",\r\n\"21-01-2025 08:40\",\"Super Admin\",\r\n\"21-01-2025 08:36\",\"Super Admin\",\r\n\"21-01-2025 08:35\",\"Super Admin\",\r\n\"21-01-2025 08:34\",\"Super Admin\",\r\n\"21-01-2025 08:31\",\"Super Admin\",\r\n\"21-01-2025 08:28\",\"Super Admin\",\r\n\"20-01-2025 15:20\",\"Super Admin\",\r\n\"20-01-2025 15:19\",\"Super Admin\",\r\n\"20-01-2025 15:19\",\"Super Admin\",\r\n\"20-01-2025 14:58\",\"Super Admin\",\r\n\"20-01-2025 14:58\",\"Super Admin\",\r\n\"20-01-2025 14:57\",\"Super Admin\",\r\n\"20-01-2025 14:38\",\"Super Admin\",\r\n\"20-01-2025 13:48\",\"Super Admin\","
+				}
+			]
+		},
+		{
+			"name": "APIhealth",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/ping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"64-/jJ6hChnapkMekycxJuJxJbZ9fo\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Jan 2025 12:19:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": \"OK\",\n        \"date\": \"2025-01-20T12:19:03.539Z\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:2000/api/v1/admin",
+			"type": "string"
+		},
+		{
+			"key": "jwt",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

@@ -1,186 +1,295 @@
 const { listToCsv } = require("../utils/listToCsv");
 
+// const { redisClient, redisCache } = require("../thirdParty/redis");
 const { AppError } = require("../middleware/error");
 const { exampleModel } = require("../models");
 const { validateAddOrEdit } = require("./validations/examples");
 
 const lib = {
   async create(params) {
-    const { error } = validateAddOrEdit(params);
+    try {
+      const { error } = validateAddOrEdit(params);
 
-    if (error) throw new AppError(400, error.details[0].message);
+      if (error) throw new AppError(400, error.details[0].message);
 
-    const example = await exampleModel.create({ ...params });
+      const example = await exampleModel.create({ ...params });
 
-    if (!example) throw new AppError(500, "Internal server error.");
+      if (!example) throw new AppError(500, "Internal server error.");
 
-    return;
+      return;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
   },
 
   async read(params) {
-    /* eslint-disable prefer-const */
-    let {
-      pageNo,
-      limitNo,
-      filter = "createdAt",
-      order = "-1",
-      fromDate,
-      toDate,
-      search,
-    } = params;
-    /* eslint-disable prefer-const */
+    try {
+      /* eslint-disable prefer-const */
+      let {
+        pageNo,
+        limitNo,
+        filter = "createdAt",
+        order = "-1",
+        fromDate,
+        toDate,
+        search,
+      } = params;
+      /* eslint-disable prefer-const */
 
-    pageNo = pageNo ? +pageNo : 1;
-    limitNo = limitNo ? +limitNo : 10;
+      pageNo = pageNo ? +pageNo : 1;
+      limitNo = limitNo ? +limitNo : 10;
 
-    const sort = { $sort: { date: -1 } };
+      const sort = { $sort: { date: -1 } };
 
-    const query = {};
+      const query = {};
 
-    query["is_archived"] = false;
+      query["is_archived"] = false;
 
-    if (filter) {
-      if (!order) order = 1;
-      sort["$sort"][filter] = parseInt(order);
-    }
+      if (filter) {
+        if (!order) order = 1;
+        sort["$sort"][filter] = parseInt(order);
+      }
 
-    if (fromDate && toDate) {
-      fromDate = new Date(fromDate) || new Date(null);
-      toDate = new Date(toDate) || new Date(null);
-      query["createdAt"] = {
-        $gte: fromDate,
-        $lte: new Date(toDate.getTime() + 86399999),
-      };
-    }
+      if (fromDate && toDate) {
+        fromDate = new Date(fromDate) || new Date(null);
+        toDate = new Date(toDate) || new Date(null);
+        query["createdAt"] = {
+          $gte: fromDate,
+          $lte: new Date(toDate.getTime() + 86399999),
+        };
+      }
 
-    const pipeline = [
-      {
-        $match: query,
-      },
-      {
-        $lookup: {
-          from: "users",
-          localField: "user_id",
-          foreignField: "_id",
-          as: "user",
+      const pipeline = [
+        {
+          $match: query,
         },
-      },
-      {
-        $unwind: {
-          path: "$user",
-          preserveNullAndEmptyArrays: true,
+        {
+          $lookup: {
+            from: "users",
+            localField: "user_id",
+            foreignField: "_id",
+            as: "user",
+          },
         },
-      },
-      {
-        $project: {
-          ID: "$num",
-          date: params.download // readable date for CSV | defaults to timestamp for JSON
-            ? {
-                $dateToString: {
-                  date: "$createdAt",
-                  format: "%d-%m-%Y %H:%M",
+        {
+          $unwind: {
+            path: "$user",
+            preserveNullAndEmptyArrays: true,
+          },
+        },
+        {
+          $project: {
+            ID: "$num",
+            date: params.download // readable date for CSV | defaults to timestamp for JSON
+              ? {
+                  $dateToString: {
+                    date: "$createdAt",
+                    format: "%d-%m-%Y %H:%M",
+                  },
+                }
+              : "$createdAt",
+            title: 1,
+            description: 1,
+            user_id: 1,
+            author: { $concat: ["$user.first_name", " ", "$user.last_name"] },
+          },
+        },
+        // partial and full word search
+        // search also works on joint collection
+        // returns empty list if no match
+        ...(search
+          ? [
+              {
+                $match: {
+                  $or: [
+                    { title: new RegExp(search, "i") },
+                    { description: new RegExp(search, "i") },
+                    { author: new RegExp(search, "i") },
+                  ],
                 },
-              }
-            : "$createdAt",
-          title: 1,
-          description: 1,
-          user_id: 1,
-          author: { $concat: ["$user.first_name", " ", "$user.last_name"] },
-        },
-      },
-      // partial and full word search
-      // search also works on joint collection
-      // returns empty list if no match
-      ...(search
-        ? [
-            {
-              $match: {
-                $or: [
-                  { title: new RegExp(search, "i") },
-                  { description: new RegExp(search, "i") },
-                  { author: new RegExp(search, "i") },
-                ],
               },
-            },
-          ]
-        : []),
-      sort,
-    ];
+            ]
+          : []),
+        sort,
+      ];
 
-    let examples;
+      let examples;
 
-    if (params.download) {
-      examples = await listToCsv(params, exampleModel, pipeline);
+      if (params.download) {
+        examples = await listToCsv(params, exampleModel, pipeline);
+
+        return examples;
+      }
+
+      examples = await exampleModel.aggregate([
+        ...pipeline,
+        sort,
+        {
+          $facet: {
+            metadata: [
+              { $count: "total" },
+              {
+                $addFields: {
+                  page: pageNo,
+                  limit: limitNo,
+                  pages: { $ceil: { $divide: ["$total", limitNo] } },
+                },
+              },
+            ],
+            data: [{ $skip: pageNo * limitNo - limitNo }, { $limit: limitNo }],
+          },
+        },
+        {
+          $addFields: {
+            metadata: { $arrayElemAt: ["$metadata", 0] },
+          },
+        },
+      ]);
 
       return examples;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
     }
-
-    examples = await exampleModel.aggregate([
-      ...pipeline,
-      sort,
-      {
-        $facet: {
-          metadata: [
-            { $count: "total" },
-            {
-              $addFields: {
-                page: pageNo,
-                limit: limitNo,
-                pages: { $ceil: { $divide: ["$total", limitNo] } },
-              },
-            },
-          ],
-          data: [{ $skip: pageNo * limitNo - limitNo }, { $limit: limitNo }],
-        },
-      },
-      {
-        $addFields: {
-          metadata: { $arrayElemAt: ["$metadata", 0] },
-        },
-      },
-    ]);
-
-    return examples;
   },
 
   async readSingle(params) {
-    let example = await exampleModel.findById(params.id).lean();
+    try {
+      let example = await exampleModel.findById(params.id).lean();
 
-    if (!example) throw new AppError(404, "Record not found.");
+      if (!example) throw new AppError(404, "Record not found.");
 
-    return example;
+      return example;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
   },
+
+  /*
+
+  // read with redis cache
+
+  async readSingle(params) {
+    try {
+      const fetchDB = async () => {
+        const example = await exampleModel.findById(params.id);
+
+        if (!example) throw new AppError(404, "Record not found.");
+
+        return example;
+      };
+
+      // get or cache
+      return await redisCache(`examples:${params.id}`, fetchDB);
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
+  },
+  */
 
   async update(params) {
-    const { error } = validateAddOrEdit(params);
+    try {
+      const { error } = validateAddOrEdit(params);
 
-    if (error) throw new AppError(400, error.details[0].message);
+      if (error) throw new AppError(400, error.details[0].message);
 
-    let example = await exampleModel.findById(params.id).lean();
+      let example = await exampleModel.findById(params.id).lean();
 
-    if (!example) throw new AppError(404, "Record not found.");
+      if (!example) throw new AppError(404, "Record not found.");
 
-    let update_example = await exampleModel.findByIdAndUpdate(params.id, {
-      $set: {
-        ...params,
-      },
-    });
+      let update_example = await exampleModel.findByIdAndUpdate(params.id, {
+        $set: {
+          ...params,
+        },
+      });
 
-    if (!update_example) throw new AppError(500, "Internal server error.");
+      if (!update_example) throw new AppError(500, "Internal server error.");
 
-    return;
+      return;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
   },
 
+  /*
+
+  // update with redis cache
+
+  async update(params) {
+    try {
+      const { error } = validateAddOrEdit(params);
+
+      if (error) throw new AppError(400, error.details[0].message);
+
+      const cached_key = `examples:${params.id}`;
+
+      const example = await lib.readSingle(params);
+
+      const update_example = await exampleModel.findByIdAndUpdate(
+        example._id,
+        {
+          $set: {
+            ...params,
+          },
+        },
+        { new: true }
+      );
+
+      if (!update_example) throw new AppError(500, "Internal server error.");
+
+      // update only if the key already exists in redis db.
+      await redisClient.SET(cached_key, JSON.stringify(update_example), {
+        XX: true,
+      });
+
+      return update_example;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
+  },
+  */
+
   async delete(params) {
-    let example = await exampleModel.findById(params.id).lean();
+    try {
+      let example = await exampleModel.findById(params.id).lean();
 
-    if (!example) throw new AppError(404, "Record not found.");
+      if (!example) throw new AppError(404, "Record not found.");
 
-    let delete_example = await exampleModel.findByIdAndDelete(params.id);
+      let delete_example = await exampleModel.findByIdAndDelete(params.id);
 
-    if (!delete_example) throw new AppError(500, "internal server error.");
+      if (!delete_example) throw new AppError(500, "internal server error.");
 
-    return;
+      return;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
   },
 };
 

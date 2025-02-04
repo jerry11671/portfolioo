@@ -9,6 +9,7 @@ const {
 const {
   registerUser,
   resendRegisterationVerificationCode,
+  validateRegisterationToken,
   login,
   forgotPassword,
   validateResetPasswordToken,
@@ -18,30 +19,30 @@ const {
 
 // register screen
 router.post(
-  "/register",
+  "/auths/register",
   setAppParam,
   validateGoogleRecaptchaToken,
   registerUser
 );
 
 router.post(
-  "/register/resend-code",
+  "/auths/register/resend-code",
   setAppParam,
   resendRegisterationVerificationCode
 );
 
 router.post(
-  "/register/validate-code",
+  "/auths/register/validate-code",
   setAppParam,
-  resendRegisterationVerificationCode
+  validateRegisterationToken
 );
 
 // login screen
-router.post("/login", setAppParam, validateGoogleRecaptchaToken, login);
+router.post("/auths/login", setAppParam, validateGoogleRecaptchaToken, login);
 
 // forgot-password screen
 router.post(
-  "/forgot-password",
+  "/auths/forgot-password",
   setAppParam,
   validateGoogleRecaptchaToken,
   forgotPassword
@@ -49,15 +50,15 @@ router.post(
 
 // validate reset password OTP screen
 router.post(
-  "/forgot-password/validate-code",
+  "/auths/forgot-password/validate-code",
   setAppParam,
   validateResetPasswordToken
 );
 
 // reset-password screen
-router.post("/reset-password", setAppParam, resetPassword);
+router.post("/auths/reset-password", setAppParam, resetPassword);
 
 // change password screen
-router.patch("/change-password", setAppParam, isLoggedIn, changePassword);
+router.patch("/auths/change-password", setAppParam, isLoggedIn, changePassword);
 
 module.exports = router;

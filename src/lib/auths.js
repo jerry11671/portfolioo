@@ -41,7 +41,7 @@ const lib = {
   async processRegisterUser(params) {
     try {
       // check if user exists
-      const user = await userLib.userExist(params.email);
+      const user = await userLib.userExist(params.id);
 
       if (user) {
         throw new AppError(409, "Account already exists.");
@@ -49,7 +49,7 @@ const lib = {
 
       // delete previous/pendig validation document if user is yet to verify their email
       const pending_validation = await validationModel.findOne({
-        email: params.email,
+        email: params.id,
         "is_verified.status": false,
       });
 
@@ -78,7 +78,7 @@ const lib = {
       }
 
       return {
-        email: params.email,
+        email: params.id,
         name: `${params.first_name} ${params.last_name}`,
         verification_code: params.verification_code,
       };
@@ -98,10 +98,12 @@ const lib = {
       throw new AppError(400, error.details[0].message);
     }
 
-    params.email = params.email.trim().toLowerCase();
-    params.phone_number = formatPhoneNumber(params.phone_number.trim());
+    params.email = params.id.trim().toLowerCase();
+    params.phone
+      ? (params.phone = formatPhoneNumber(params.phone.trim()))
+      : null;
     // generate a 4-digit random number as the verification code
-    params.verification_code = await OTP.generate(4, params.email, environment);
+    params.verification_code = await OTP.generate(4, params.id, environment);
 
     params.is_verified = {
       token: params.verification_code,
@@ -201,7 +203,12 @@ const lib = {
       if (!expiry_time) throw new AppError(498, "OTP Expired.");
 
       // complete registeration
-      const user = await userModel.create({ ...validation_document });
+      const user = await userModel.create({
+        first_name: validation_document.first_name,
+        last_name: validation_document.last_name,
+        email: validation_document.email,
+        password: validation_document.password,
+      });
 
       if (user) {
         await validationModel.findByIdAndDelete(validation_document.id);

@@ -47,9 +47,15 @@ const controller = {
       // request
       const params = req.body;
 
+      delete params.is_deleted;
+      delete params.is_archived;
+      delete params.status;
       delete params.role;
+      delete params.type;
       delete params.password;
       delete params.reset_password;
+      delete params.createdAt;
+
       params.user_id = req.user.currentUser._id;
       params.user_email = req.user.currentUser.email;
 

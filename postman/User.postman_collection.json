@@ -1,0 +1,1946 @@
+{
+	"info": {
+		"_postman_id": "57ffab09-5c56-4efe-abf4-87a8f982b05f",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10431360"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 09:49:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"password\": \"pass\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-NnySxl47q6mZEFmIXEVSgjR8Ql4\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 10:17:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 400,\n    \"message\": \"Password must be at least 8 characters long.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ResendEmailVerificationCode",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/register/resend-code",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"register",
+								"resend-code"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/register/resend-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"register",
+										"resend-code"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 10:18:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/register/resend-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"register",
+										"resend-code"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-IQuTbS1FN4HmEM/DHJMB91YCWEQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 10:17:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 400,\n    \"message\": \"You are yet to sign up.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "VerifyEmail",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"verification_code\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/register/validate-code",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"register",
+								"validate-code"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"verification_code\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/register/validate-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"register",
+										"validate-code"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:12:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"verification_code\": \"5434\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/register/validate-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"register",
+										"validate-code"
+									]
+								}
+							},
+							"status": "unknown",
+							"code": 498,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-WVZjB0VS7IbQqWyN/MxERAqLDR0\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 10:30:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 498,\n    \"message\": \"Invalid OTP.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ForgotPassword",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/forgot-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"forgot-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:22:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"johndoe@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-Ecrm/z/cl8OLOB5yNaKumfQ/pdQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:22:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 404,\n    \"message\": \"Account not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ResendResetPasswordCode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"admin.example@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/forgot-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"forgot-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:24:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"johndoe@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/forgot-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"forgot-password"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-Ecrm/z/cl8OLOB5yNaKumfQ/pdQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:24:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 404,\n    \"message\": \"Account not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ResetPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"verification_code\": \"1234\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/reset-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"reset-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"verification_code\": \"1234\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/reset-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:26:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"verification_code\": \"1235\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/reset-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"reset-password"
+									]
+								}
+							},
+							"status": "unknown",
+							"code": 498,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-WVZjB0VS7IbQqWyN/MxERAqLDR0\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:26:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 498,\n    \"message\": \"Invalid OTP.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"jwt\", pm.response.json().data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"password\": \"Password123$$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "739"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e3-roMBiBtou/WQjOBBeeOAXvBVdxw\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:30:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"user\": {\n            \"status\": true,\n            \"is_deleted\": false,\n            \"is_archived\": false,\n            \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n            \"type\": \"User\",\n            \"role\": \"User\",\n            \"_id\": \"67a1f84a5c20692980ddef72\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"email\": \"john.doe@yopmail.com\",\n            \"password\": null,\n            \"createdAt\": \"2025-02-04T11:21:46.179Z\",\n            \"updatedAt\": \"2025-02-04T11:26:40.525Z\",\n            \"num\": 1,\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXJyZW50VXNlciI6eyJfaWQiOiI2N2ExZjg0YTVjMjA2OTI5ODBkZGVmNzIiLCJlbWFpbCI6ImpvaG4uZG9lQHlvcG1haWwuY29tIiwic3RhdHVzIjp0cnVlLCJ0eXBlIjoiVXNlciIsInJvbGUiOiJVc2VyIn0sImlhdCI6MTczODY2ODYzMiwiZXhwIjoxNzQxMjYwNjMyfQ.wBcuajoPOvSMnFzZHZ1AfdX6vxtHVMH2GSg_d-9TFCw\"\n    }\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"john.doe@yopmail.com\",\r\n    \"password\": \"Password123$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-Ee6K4sBjsM2hVCM9uaf2tJX/phQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:30:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 400,\n    \"message\": \"Incorrect login credentials. Please check and try again.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\": \"Password123$$\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auths/change-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auths",
+								"change-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"current_password\": \"Password123$$\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/change-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"change-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 12:53:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"current_password\": \"Password1234$$\",\r\n    \"new_password\": \"Password123$$\",\r\n    \"confirm_password\": \"Password123$$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/auths/change-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auths",
+										"change-password"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-lJi1hTjHRpG1TCIQhO5RfsMoN3A\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 12:52:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 400,\n    \"message\": \"Current password is incorrect.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "412"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19c-jhhERQk1XZKplp9NaNsm5q39Rk8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 11:48:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": true,\n        \"is_deleted\": false,\n        \"is_archived\": false,\n        \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n        \"type\": \"User\",\n        \"role\": \"User\",\n        \"_id\": \"67a1f84a5c20692980ddef72\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"john.doe@yopmail.com\",\n        \"createdAt\": \"2025-02-04T11:21:46.179Z\",\n        \"updatedAt\": \"2025-02-04T11:32:02.681Z\",\n        \"num\": 1,\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateProfile",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"john.doe@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"john.doe@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "412"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19c-sZxTiIX4DDFzb9i5A1eGk1gBUOk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 12:48:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": true,\n        \"is_deleted\": false,\n        \"is_archived\": false,\n        \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n        \"type\": \"User\",\n        \"role\": \"User\",\n        \"_id\": \"67a207e2accd357f8022d0eb\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"john.doe@yopmail.com\",\n        \"createdAt\": \"2025-02-04T11:21:46.179Z\",\n        \"updatedAt\": \"2025-02-04T12:48:30.036Z\",\n        \"num\": 1,\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"jane.doe@yopmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-Ln2KYinodLuK5BTm9a4mspkg/E4\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Feb 2025 12:47:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 409,\n    \"message\": \"Email address aready taken.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/me",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "412"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19c-jhhERQk1XZKplp9NaNsm5q39Rk8\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 11:48:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": true,\n        \"is_deleted\": false,\n        \"is_archived\": false,\n        \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n        \"type\": \"User\",\n        \"role\": \"User\",\n        \"_id\": \"67a1f84a5c20692980ddef72\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"john.doe@yopmail.com\",\n        \"createdAt\": \"2025-02-04T11:21:46.179Z\",\n        \"updatedAt\": \"2025-02-04T11:32:02.681Z\",\n        \"num\": 1,\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UploadFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/C:/Users/SGS 4/Desktop/profile.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/files",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"files"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/SGS 4/Desktop/profile.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/files",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b7-HHECZEgpUBd8bIn2LKpxYKLli2A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 11:32:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": [\n        {\n            \"src\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/703334_profile.jpg\",\n            \"title\": \"profile.jpg\",\n            \"type\": \"image\",\n            \"size\": \"0.01 MB\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "APIhealth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/ping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"64-Yef/0BKs9g+YH5NDWnfW8/BHF3M\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Feb 2025 09:44:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": \"OK\",\n        \"date\": \"2025-02-04T09:44:18.329Z\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:2000/api/v1/user",
+			"type": "string"
+		},
+		{
+			"key": "jwt",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

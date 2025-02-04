@@ -14,7 +14,7 @@ const validationModel = new mongoose.Schema(
       trim: true,
       default: "",
     },
-    phone_number: {
+    phone: {
       type: String,
       trim: true,
       default: "",
@@ -45,7 +45,7 @@ validationModel.index({
   first_name: "text",
   last_name: "text",
   email: "text",
-  phone_number: "text",
+  phone: "text",
 });
 
 module.exports = mongoose.model("Validation", validationModel);

@@ -49,6 +49,7 @@ const userModel = new mongoose.Schema(
       type: String,
       trim: true,
       unique: true,
+      sparse: true, // ensure unique but allows multiple nulls
     },
     password: {
       type: String,
@@ -103,7 +104,7 @@ userModel.index({
   first_name: "text",
   last_name: "text",
   email: "text",
-  phone_number: "text",
+  phone: "text",
   type: "text",
   role: "text",
   is_archived: "text",

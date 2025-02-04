@@ -1,5 +1,29 @@
 const Joi = require("joi");
 
+exports.validateRegisteration = (users) => {
+  const schema = Joi.object({
+    first_name: Joi.string().trim().required().messages({
+      "any.required": "First name is required.",
+      "string.empty": "First name is required.",
+    }),
+    last_name: Joi.string().trim().required().messages({
+      "any.required": "Last name is required.",
+      "string.empty": "Last name is required.",
+    }),
+    id: Joi.string().required().email().messages({
+      "any.required": "Email address is required.",
+      "string.empty": "Email address is required.",
+      "string.email": "Please provide a valid email address.",
+    }),
+    password: Joi.string().required().min(8).messages({
+      "any.required": "Password is required.",
+      "string.empty": "Password is required.",
+      "string.min": "Password must be at least 8 characters long.",
+    }),
+  }).unknown(true);
+  return schema.validate(users);
+};
+
 exports.validateLogin = (users) => {
   const schema = Joi.object({
     id: Joi.string().required().email().messages({
@@ -16,6 +40,7 @@ exports.validateLogin = (users) => {
 
   return schema.validate(users);
 };
+
 exports.validateId = (users) => {
   const schema = Joi.object({
     id: Joi.string().required().email().messages({

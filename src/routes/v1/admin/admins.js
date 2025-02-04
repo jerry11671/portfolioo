@@ -12,10 +12,7 @@ const {
   readSingle,
   update,
   updateStatus,
-  readRedis,
 } = require("../../../controllers/admins");
-
-router.get("/redis", isLoggedInAdmin, readRedis);
 
 // teams screen
 router.get("/users", isLoggedInAdmin, read);
