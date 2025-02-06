@@ -11,6 +11,16 @@ const environment = process.env.NODE_ENV;
 const cors = require("cors");
 const { handleError } = require("./src/middleware/error");
 
+// disable console methods globally
+/* eslint-disable no-empty-function */
+/* eslint-disable no-console */
+console.log = function () {};
+console.info = function () {};
+console.warn = function () {};
+console.error = function () {};
+/* eslint-disable no-console */
+/* eslint-enable no-empty-function */
+
 const app = express();
 
 app.use(bodyParser.json());

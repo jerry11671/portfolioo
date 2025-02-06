@@ -2,7 +2,7 @@ const { createLogger, format, transports } = require("winston");
 
 const { simple } = format;
 
-const CONSOLE_LOGGING_ENABLED = false; //  disable or enable console logging
+const IS_CONSOLE_LOGGING_ENABLED = true; // enable or disable console logging
 
 const baseLogger = () => {
   return createLogger({
@@ -12,13 +12,17 @@ const baseLogger = () => {
   });
 };
 
-const developmentLogger = {
-  ...baseLogger,
-  log: function (message) {
-    if (CONSOLE_LOGGING_ENABLED) {
-      baseLogger.log(message);
+const developmentLogger = () => {
+  const logger = baseLogger();
+
+  // override the log method
+  logger.log = function (message, level = "debug") {
+    if (IS_CONSOLE_LOGGING_ENABLED) {
+      console.log(`${level}:`, message);
     }
-  },
+  };
+
+  return logger;
 };
 
 module.exports = developmentLogger;

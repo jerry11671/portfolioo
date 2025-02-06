@@ -232,8 +232,6 @@ describe("AUTHS", () => {
         .findOne({ email: "john.doe@yopmail.com" })
         .select({ "reset_password.token": 1, email: 1 });
 
-      console.log(user);
-
       const res = await req.post(`${base_url}/auths/reset-password`).send({
         id: "john.doe@yopmail.com",
         verification_code: user.reset_password.token,

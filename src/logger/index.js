@@ -4,16 +4,14 @@ const productionLogger = require("./productionLogger");
 
 const environment = process.env.NODE_ENV;
 
-var logger;
+let logger;
 
-logger = testLogger();
-
-if (environment == "development") {
+if (environment === "development") {
   logger = developmentLogger();
-}
-
-if (environment == "production") {
+} else if (environment === "production") {
   logger = productionLogger();
+} else {
+  logger = testLogger();
 }
 
 module.exports = logger;
