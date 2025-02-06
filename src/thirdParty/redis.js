@@ -1,5 +1,6 @@
-const { createClient } = require("redis");
+const environment = process.env.NODE_ENV;
 
+const { createClient } = require("redis");
 const logger = require("../logger");
 
 const redisClient = createClient({
@@ -12,6 +13,8 @@ redisClient
   .catch((error) => logger.error("Redis connection error:", error));
 
 const storeSession = async (user_id, token) => {
+  if (environment === "test") return;
+
   const key = `session:${user_id}`;
 
   await redisClient.SET(key, token, {
@@ -20,19 +23,24 @@ const storeSession = async (user_id, token) => {
 };
 
 const verifySession = async (user_id, token) => {
+  if (environment === "test") return true;
+
   const storedToken = await redisClient.GET(`session:${user_id}`);
   return storedToken === token;
 };
 
 const deleteSession = async (user_id) => {
-  const key = `session:${user_id}`;
+  if (environment === "test") return;
 
+  const key = `session:${user_id}`;
   await redisClient.DEL(key);
 };
 
 // get or set cache
 const redisCache = async (key, fetchDB) => {
   try {
+    if (environment === "test") return;
+
     const cached_data = await redisClient.GET(key);
 
     if (cached_data) {
@@ -52,6 +60,8 @@ const redisCache = async (key, fetchDB) => {
 };
 
 const rateLimiter = async (user_id) => {
+  if (environment === "test") return;
+
   const limit = process.env.REDIS_REQUEST_RATE_LIMIT;
   const seconds = process.env.REDIS_REQUEST_RATE_LIMIT_TIME_WINDOW;
 

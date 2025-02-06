@@ -1,10 +1,16 @@
-const { createUser, createExample, createTrail } = require("./createData");
+const {
+  createExample,
+  createAdmin,
+  createUser,
+  createTrail,
+} = require("./createData");
 
 const { connectDB, disconnectDB } = require("./dbConfig");
 
 module.exports = {
-  createUser,
   createExample,
+  createAdmin,
+  createUser,
   createTrail,
   connectDB,
   disconnectDB,

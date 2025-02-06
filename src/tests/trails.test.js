@@ -2,19 +2,19 @@ const request = require("supertest");
 
 const { userModel, trailModel } = require("../models/index");
 const app = require("../../app");
-const { createUser, createTrail } = require("./helpers/index");
+const { createAdmin, createTrail } = require("./helpers/index");
 
 const req = request(app);
 
-const base_url = "/api/v1/web";
+const base_url = "/api/v1/admin";
 
 describe("TRAILS", () => {
-  let user;
+  let admin;
   let token;
   let trail;
 
   beforeEach(async () => {
-    user = await createUser();
+    admin = await createAdmin();
     trail = await createTrail();
   });
 
@@ -26,8 +26,8 @@ describe("TRAILS", () => {
   describe("LOGIN", () => {
     it("should return status 200 if login credentials is correct", async () => {
       const res = await req
-        .post(`${base_url}/auth/login`)
-        .send({ email: user.email, password: "password" });
+        .post(`${base_url}/auths/login`)
+        .send({ id: admin.email, password: "password" });
 
       expect(res.status).toBe(200);
       expect(res.body).toMatchObject({
@@ -42,7 +42,7 @@ describe("TRAILS", () => {
   });
 
   describe("LIST", () => {
-    it("should return status 401 if user is not logged in", async () => {
+    it("should return status 401 if admin is not logged in", async () => {
       const res = await req.get(`${base_url}/trails`);
 
       expect(res.status).toBe(401);

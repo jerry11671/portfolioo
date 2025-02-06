@@ -1,6 +1,11 @@
 const bcrypt = require("bcrypt");
 
-const { userModel, exampleModel, trailModel } = require("../../models/index");
+const {
+  exampleModel,
+  adminModel,
+  userModel,
+  trailModel,
+} = require("../../models/index");
 
 const helpers = {
   async createExample() {
@@ -17,13 +22,26 @@ const helpers = {
     return example;
   },
 
-  async createUser() {
-    let user = new userModel({
+  async createAdmin() {
+    let user = new adminModel({
       first_name: "Super",
       last_name: "Admin",
-      email: "admin.template@yopmail.com",
+      email: `admin${Date.now()}@yopmail.com`,
       password: bcrypt.hashSync("password", 8),
-      role: "admin",
+      role: "Super Admin",
+    });
+
+    user = await user.save();
+
+    return user;
+  },
+
+  async createUser() {
+    let user = new userModel({
+      first_name: "John",
+      last_name: "Doe",
+      email: `user${Date.now()}@yopmail.com`,
+      password: bcrypt.hashSync("password", 8),
     });
 
     user = await user.save();
@@ -32,10 +50,11 @@ const helpers = {
   },
 
   async createTrail() {
-    const user = await helpers.createUser();
+    const admin = await helpers.createAdmin();
 
     let trail = new trailModel({
-      user_id: user._id,
+      resource: "example",
+      admin_id: admin._id,
       action: "Added example to list.",
     });
 

@@ -1,8 +1,8 @@
 const axios = require("axios");
 
 const { AppError } = require("../middleware/error");
-const reCAPTCHA_secret_key = process.env.USERS_GOOGLE_RECAPTCHA_SECRET_KEY;
-const reCAPTCHA_verify_api = process.env.USERS_GOOGLE_RECAPTCHA_API;
+const reCAPTCHA_secret_key = process.env.GOOGLE_RECAPTCHA_SECRET_KEY;
+const reCAPTCHA_verify_api = process.env.GOOGLE_RECAPTCHA_API;
 
 const verifyCAPTCHA = async (recaptcha_token) => {
   const params = new URLSearchParams({

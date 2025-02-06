@@ -1,44 +1,30 @@
-/**
- * THIS SCRIPT SERVES AS A TEMPLATE
- *
- * IT IS NOT INCLUDED IN THE RUNNING TEST SUITES
- * SO IT WON'T BE PART OF THE REPORT
- * SEE 'jest.testPathIgnorePatterns' IN package.json
- *
- * HOW TO USE THIS TEMPLATE:
- * COPY THIS FILE AND RENAME COPIED FILE OR
- * COPY SCRIPTS IN THIS FILE TO ANOTHER FILE
- */
-
 const request = require("supertest");
 
-const { userModel, exampleModel } = require("../models/index");
+const { adminModel } = require("../models/index");
 const app = require("../../app");
-const { createUser, createExample } = require("./helpers/index");
+const { createAdmin } = require("./helpers/index");
 
 const req = request(app);
 
-const base_url = "/api/v1/user";
+const base_url = "/api/v1/admin";
 
-describe("EXAMPLES", () => {
-  let user;
+describe("ADMINS", () => {
+  let admin;
   let token;
 
   beforeEach(async () => {
-    user = await createUser();
-    example = await createExample();
+    admin = await createAdmin();
   });
 
   afterEach(() => {
-    userModel.deleteMany({});
-    exampleModel.deleteMany({});
+    adminModel.deleteMany({});
   });
 
   describe("LOGIN", () => {
     it("should return status 200 if login credentials is correct", async () => {
       const res = await req
         .post(`${base_url}/auths/login`)
-        .send({ id: user.email, password: "password" });
+        .send({ id: admin.email, password: "password" });
 
       expect(res.status).toBe(200);
       expect(res.body).toMatchObject({
@@ -53,13 +39,14 @@ describe("EXAMPLES", () => {
   });
 
   describe("CREATE", () => {
-    it("should return status 400 if title is not entered", async () => {
+    it("should return status 400 if role is not entered", async () => {
       const res = await req
-        .post(`${base_url}/examples`)
+        .post(`${base_url}/users`)
         .auth(token, { type: "bearer" })
         .send({
-          title: "",
-          description: example.description,
+          first_name: "John",
+          last_name: "Doe",
+          email: `admin${Date.now()}@yopmail.com`,
         });
 
       expect(res.status).toBe(400);
@@ -69,13 +56,15 @@ describe("EXAMPLES", () => {
       });
     });
 
-    it("should return status 201 if example is created", async () => {
+    it("should return status 201 if admin is created", async () => {
       const res = await req
-        .post(`${base_url}/examples`)
+        .post(`${base_url}/users`)
         .auth(token, { type: "bearer" })
         .send({
-          title: example.title,
-          description: example.description,
+          first_name: "John",
+          last_name: "Doe",
+          email: `admin${Date.now()}@yopmail.com`,
+          role: "Admin",
         });
 
       expect(res.status).toBe(201);
@@ -87,8 +76,8 @@ describe("EXAMPLES", () => {
   });
 
   describe("LIST", () => {
-    it("should return status 401 if user is not logged in", async () => {
-      const res = await req.get(`${base_url}/examples`);
+    it("should return status 401 if admin is not logged in", async () => {
+      const res = await req.get(`${base_url}/users`);
 
       expect(res.status).toBe(401);
       expect(res.body).toMatchObject({
@@ -97,9 +86,9 @@ describe("EXAMPLES", () => {
       });
     });
 
-    it("should return status 200 if examples is listed", async () => {
+    it("should return status 200 if team is listed", async () => {
       const res = await req
-        .get(`${base_url}/examples`)
+        .get(`${base_url}/users`)
         .auth(token, { type: "bearer" });
 
       expect(res.status).toBe(200);
@@ -113,9 +102,9 @@ describe("EXAMPLES", () => {
   });
 
   describe("SINGLE", () => {
-    it("should return status 404 if example is not found", async () => {
+    it("should return status 404 if admin is not found", async () => {
       const res = await req
-        .get(`${base_url}/examples/${"611109c2c43758b95308f69a"}`)
+        .get(`${base_url}/users/${"611109c2c43758b95308f69a"}`)
         .auth(token, { type: "bearer" });
 
       expect(res.status).toBe(404);
@@ -125,9 +114,9 @@ describe("EXAMPLES", () => {
       });
     });
 
-    it("should return status 200 if example is found", async () => {
+    it("should return status 200 if admin is found", async () => {
       const res = await req
-        .get(`${base_url}/examples/${example._id}`)
+        .get(`${base_url}/users/${admin._id}`)
         .auth(token, { type: "bearer" });
 
       expect(res.status).toBe(200);
@@ -140,13 +129,12 @@ describe("EXAMPLES", () => {
   });
 
   describe("EDIT", () => {
-    it("should return status 400 if descrption is not entered", async () => {
+    it("should return status 400 if email is empty", async () => {
       const res = await req
-        .patch(`${base_url}/examples/${example._id}`)
+        .patch(`${base_url}/users/${admin._id}`)
         .auth(token, { type: "bearer" })
         .send({
-          title: example.description,
-          description: "",
+          email: "",
         });
 
       expect(res.status).toBe(400);
@@ -156,13 +144,12 @@ describe("EXAMPLES", () => {
       });
     });
 
-    it("should return status 200 if example is edited", async () => {
+    it("should return status 200 if admin is edited", async () => {
       const res = await req
-        .patch(`${base_url}/examples/${example._id}`)
+        .patch(`${base_url}/users/${admin._id}`)
         .auth(token, { type: "bearer" })
         .send({
-          title: "edited title",
-          description: "edited description",
+          email: `admin${Date.now()}@yopmail.com`,
         });
 
       expect(res.status).toBe(200);
@@ -173,11 +160,14 @@ describe("EXAMPLES", () => {
     });
   });
 
-  describe("DELETE", () => {
-    it("should return status 200 if example is deleted", async () => {
+  describe("UPDATE STATUS", () => {
+    it("should return status 200 if admin status is updated", async () => {
       const res = await req
-        .delete(`${base_url}/examples/${example._id}`)
-        .auth(token, { type: "bearer" });
+        .patch(`${base_url}/users/${admin._id}/update-status`)
+        .auth(token, { type: "bearer" })
+        .send({
+          status: false,
+        });
 
       expect(res.status).toBe(200);
       expect(res.body).toMatchObject({

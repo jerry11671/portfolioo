@@ -152,9 +152,7 @@ const lib = {
 
       const user = await userModel.findById(user_id);
 
-      if (!user) {
-        throw new AppError(404, "Record not found.");
-      }
+      if (!user) throw new AppError(404, "Record not found.");
 
       return user;
     } catch (error) {
@@ -190,6 +188,18 @@ const lib = {
         if (email_taken) throw new AppError(409, "Email address aready taken.");
       }
 
+      if (params.phone) {
+        const phone_taken = await userModel.findOne({
+          $and: [
+            { phone: params.phone.trim() },
+            { _id: { $ne: params.user_id } },
+            { phone: { $exists: true, $ne: "" } },
+          ],
+        });
+
+        if (phone_taken) throw new AppError(409, "Phone number aready taken.");
+      }
+
       const update_user = await userModel.findByIdAndUpdate(
         params.user_id,
         {
@@ -212,22 +222,13 @@ const lib = {
 
   async delete(params) {
     try {
-      const user_id = params.user_id;
-
-      const _id = params._id;
-
-      // do not allow current user to delete self
-      if (String(_id) === String(user_id)) {
-        throw new AppError(403, "You are not allowed to perform this action.");
-      }
-
-      const user = await userModel.findById(user_id);
+      const user = await userModel.findById(params.user_id);
 
       if (!user) {
         throw new AppError(404, "Record not found.");
       }
 
-      const delete_user = await userModel.findByIdAndUpdate(user_id, {
+      const delete_user = await userModel.findByIdAndUpdate(params.user_id, {
         is_deleted: true,
         status: false,
       });

@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 
 const { listToCsv } = require("../utils/listToCsv");
-const { redisClient, redisCache } = require("../thirdParty/redis");
 const randomstring = require("randomstring");
 const { AppError } = require("../middleware/error");
 const { adminModel } = require("../models");
@@ -198,7 +197,6 @@ const lib = {
     }
   },
 
-  /*
   async readSingle(params) {
     try {
       const admin = await adminModel.findById(params.user_id);
@@ -214,30 +212,7 @@ const lib = {
       }
     }
   },
-  */
 
-  async readSingle(params) {
-    try {
-      const fetchDB = async () => {
-        const admin = await adminModel.findById(params.user_id);
-
-        if (!admin) throw new AppError(404, "Record not found.");
-
-        return admin;
-      };
-
-      // get or cache
-      return await redisCache(`admins:${params.user_id}`, fetchDB);
-    } catch (error) {
-      if (error instanceof AppError) {
-        throw error;
-      } else {
-        throw new AppError(500, "Internal server error.");
-      }
-    }
-  },
-
-  /*
   async update(params) {
     try {
       const { error } = validateEdit(params);
@@ -247,6 +222,11 @@ const lib = {
       const admin = await adminModel.findById(params.user_id).lean();
 
       if (!admin) throw new AppError(404, "Record not found.");
+
+      // do not allow current user to update self
+      if (params.admin_id == params.user_id) {
+        throw new AppError(403, "You are not allowed to perform this action.");
+      }
 
       if (params.email) {
         const email_taken = await adminModel.findOne({
@@ -267,56 +247,6 @@ const lib = {
       });
 
       if (!update_member) throw new AppError(500, "Internal server error.");
-
-      return update_member;
-    } catch (error) {
-      if (error instanceof AppError) {
-        throw error;
-      } else {
-        throw new AppError(500, "Internal server error.");
-      }
-    }
-  },
-  */
-
-  async update(params) {
-    try {
-      const { error } = validateEdit(params);
-
-      if (error) throw new AppError(400, error.details[0].message);
-
-      const cached_key = `admins:${params.user_id}`;
-
-      const admin = await lib.readSingle(params);
-
-      if (params.email) {
-        const email_taken = await adminModel.findOne({
-          $and: [
-            { email: params.email.trim().toLowerCase() },
-            { _id: { $ne: admin.id } },
-            { email: { $exists: true, $ne: "" } },
-          ],
-        });
-
-        if (email_taken) throw new AppError(409, "Email address aready taken.");
-      }
-
-      const update_member = await adminModel.findByIdAndUpdate(
-        params.user_id,
-        {
-          $set: {
-            ...params,
-          },
-        },
-        { new: true }
-      );
-
-      if (!update_member) throw new AppError(500, "Internal server error.");
-
-      // update only if the key already exists in redis db.
-      await redisClient.SET(cached_key, JSON.stringify(update_member), {
-        XX: true,
-      });
 
       return update_member;
     } catch (error) {

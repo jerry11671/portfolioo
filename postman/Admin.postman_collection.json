@@ -401,13 +401,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/auths/validate-reset-password-code",
+							"raw": "{{base_url}}/auths/forgot-password/validate-code",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"auths",
-								"validate-reset-password-code"
+								"forgot-password",
+								"validate-code"
 							]
 						}
 					},
@@ -427,13 +428,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/auths/validate-reset-password-code",
+									"raw": "{{base_url}}/auths/forgot-password/validate-code",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"auths",
-										"validate-reset-password-code"
+										"forgot-password",
+										"validate-code"
 									]
 								}
 							},
@@ -496,13 +498,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/auths/validate-reset-password-code",
+									"raw": "{{base_url}}/auths/forgot-password/validate-code",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"auths",
-										"validate-reset-password-code"
+										"forgot-password",
+										"validate-code"
 									]
 								}
 							},

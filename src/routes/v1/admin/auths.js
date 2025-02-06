@@ -27,7 +27,7 @@ router.post(
 
 // validate reset password OTP screen
 router.post(
-  "/auths/validate-reset-password-code",
+  "/auths/forgot-password/validate-code",
   setAppParam,
   validateResetPasswordToken
 );

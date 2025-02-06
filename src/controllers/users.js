@@ -62,7 +62,26 @@ const controller = {
       // process request
       const data = await lib.update(params);
 
-      return sendResponse(200, "Successful.", data)(req, res);
+      sendResponse(200, "Successful.", data)(req, res);
+
+      // add trail
+      if (params.user.type == "Admin") {
+        trailsLib.create(
+          req,
+          "users",
+          `Updated ${data.first_name} ${data.last_name}'s profile.`
+        );
+      }
+
+      if (params.user.type == "User") {
+        trailsLib.create(
+          req,
+          "users",
+          `${data.first_name} ${data.last_name} updated their profile.`
+        );
+      }
+
+      return;
     } catch (error) {
       next(error);
     }
@@ -72,8 +91,12 @@ const controller = {
     try {
       // process request
       const params = req.body;
+      params.user = req.user.currentUser;
       params.user_id = req.params.user_id;
-      params._id = req.user.currentUser._id;
+
+      if (!params.user_id) {
+        params.user_id = req.user.currentUser._id;
+      }
 
       const data = await lib.delete(params);
 
@@ -81,7 +104,13 @@ const controller = {
       sendResponse(200, "Successful.")(req, res);
 
       // add trail
-      trailsLib.create(req, "users", `Deleted ${data.name}'s account.`);
+      if (params.user.type == "Admin") {
+        trailsLib.create(req, "users", `Deleted ${data.name}'s account.`);
+      }
+
+      if (params.user.type == "User") {
+        trailsLib.create(req, "users", `${data.name} deleted their account.`);
+      }
 
       return;
     } catch (error) {

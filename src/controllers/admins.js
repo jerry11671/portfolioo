@@ -73,6 +73,8 @@ const controller = {
   async update(req, res, next) {
     try {
       const params = req.body;
+      params.user = req.user.currentUser;
+      params.admin_id = params.user._id;
       params.user_id = req.params.user_id;
 
       delete params.password;
@@ -140,18 +142,6 @@ const controller = {
       trailsLib.create(req, "admins", `${status} a team member.`);
 
       return;
-    } catch (error) {
-      next(error);
-    }
-  },
-
-  async readRedis(req, res, next) {
-    try {
-      const params = req.query;
-      // process request
-      const data = await lib.readRedis(params);
-
-      return sendResponse(200, "Successful.", data)(req, res);
     } catch (error) {
       next(error);
     }
