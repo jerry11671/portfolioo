@@ -1,5 +1,6 @@
 const request = require("supertest");
 
+const bcrypt = require("bcrypt");
 const { adminModel } = require("../models/index");
 const app = require("../../app");
 const { createAdmin } = require("./helpers/index");
@@ -41,7 +42,7 @@ describe("ADMINS", () => {
   describe("CREATE", () => {
     it("should return status 400 if role is not entered", async () => {
       const res = await req
-        .post(`${base_url}/users`)
+        .post(`${base_url}/teams`)
         .auth(token, { type: "bearer" })
         .send({
           first_name: "John",
@@ -58,7 +59,7 @@ describe("ADMINS", () => {
 
     it("should return status 201 if admin is created", async () => {
       const res = await req
-        .post(`${base_url}/users`)
+        .post(`${base_url}/teams`)
         .auth(token, { type: "bearer" })
         .send({
           first_name: "John",
@@ -77,7 +78,7 @@ describe("ADMINS", () => {
 
   describe("LIST", () => {
     it("should return status 401 if admin is not logged in", async () => {
-      const res = await req.get(`${base_url}/users`);
+      const res = await req.get(`${base_url}/teams`);
 
       expect(res.status).toBe(401);
       expect(res.body).toMatchObject({
@@ -88,7 +89,7 @@ describe("ADMINS", () => {
 
     it("should return status 200 if team is listed", async () => {
       const res = await req
-        .get(`${base_url}/users`)
+        .get(`${base_url}/teams`)
         .auth(token, { type: "bearer" });
 
       expect(res.status).toBe(200);
@@ -104,7 +105,7 @@ describe("ADMINS", () => {
   describe("SINGLE", () => {
     it("should return status 404 if admin is not found", async () => {
       const res = await req
-        .get(`${base_url}/users/${"611109c2c43758b95308f69a"}`)
+        .get(`${base_url}/teams/${"611109c2c43758b95308f69a"}`)
         .auth(token, { type: "bearer" });
 
       expect(res.status).toBe(404);
@@ -116,7 +117,7 @@ describe("ADMINS", () => {
 
     it("should return status 200 if admin is found", async () => {
       const res = await req
-        .get(`${base_url}/users/${admin._id}`)
+        .get(`${base_url}/teams/${admin._id}`)
         .auth(token, { type: "bearer" });
 
       expect(res.status).toBe(200);
@@ -131,7 +132,7 @@ describe("ADMINS", () => {
   describe("EDIT", () => {
     it("should return status 400 if email is empty", async () => {
       const res = await req
-        .patch(`${base_url}/users/${admin._id}`)
+        .patch(`${base_url}/teams/${admin._id}`)
         .auth(token, { type: "bearer" })
         .send({
           email: "",
@@ -146,7 +147,7 @@ describe("ADMINS", () => {
 
     it("should return status 200 if admin is edited", async () => {
       const res = await req
-        .patch(`${base_url}/users/${admin._id}`)
+        .patch(`${base_url}/teams/${admin._id}`)
         .auth(token, { type: "bearer" })
         .send({
           email: `admin${Date.now()}@yopmail.com`,
@@ -162,8 +163,18 @@ describe("ADMINS", () => {
 
   describe("UPDATE STATUS", () => {
     it("should return status 200 if admin status is updated", async () => {
+      let new_admin = new adminModel({
+        first_name: "Jane",
+        last_name: "Admin",
+        email: `admin${Date.now()}@yopmail.com`,
+        password: bcrypt.hashSync("password", 8),
+        role: "Admin",
+      });
+
+      new_admin = await new_admin.save();
+
       const res = await req
-        .patch(`${base_url}/users/${admin._id}/update-status`)
+        .patch(`${base_url}/teams/${new_admin._id}/update-status`)
         .auth(token, { type: "bearer" })
         .send({
           status: false,

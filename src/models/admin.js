@@ -53,7 +53,7 @@ const adminModel = new mongoose.Schema(
     role: {
       type: String,
       enum: ["Super Admin", "Admin"],
-      default: "Super Admin",
+      default: "Admin",
       required: true,
     },
     reset_password: {

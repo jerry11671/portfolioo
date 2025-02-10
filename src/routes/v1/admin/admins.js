@@ -15,23 +15,23 @@ const {
 } = require("../../../controllers/admins");
 
 // teams screen
-router.get("/users", isLoggedInAdmin, read);
+router.get("/teams", isLoggedInAdmin, read);
 
 // add team member screen
-router.post("/users", isLoggedInSuperAdmin, create);
+router.post("/teams", isLoggedInSuperAdmin, create);
 
 // get current user/my profile
 router.get("/me", isLoggedIn, readSingle);
 
 // view team member
-router.get("/users/:user_id", isLoggedInAdmin, readSingle);
+router.get("/teams/:user_id", isLoggedInAdmin, readSingle);
 
 // edit team member screen
-router.patch("/users/:user_id", isLoggedInSuperAdmin, update);
+router.patch("/teams/:user_id", isLoggedInSuperAdmin, update);
 
 // suspend/acivate team member
 router.patch(
-  "/users/:user_id/update-status",
+  "/teams/:user_id/update-status",
   isLoggedInSuperAdmin,
   updateStatus
 );

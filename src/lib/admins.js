@@ -274,6 +274,11 @@ const lib = {
         throw new AppError(403, "You are not allowed to perform this action.");
       }
 
+      // do not allow super admin to be updated
+      if (user.role == "Super Admin") {
+        throw new AppError(403, "You are not allowed to perform this action.");
+      }
+
       const update = await adminModel.findByIdAndUpdate(params.user_id, {
         status: params.status,
       });

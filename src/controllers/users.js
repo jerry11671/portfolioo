@@ -1,6 +1,7 @@
 const lib = require("../lib/users");
 
 const trailsLib = require("../lib/trails");
+const { notify } = require("../lib/notifications");
 const { sendResponse } = require("../utils/helpers");
 
 const controller = {
@@ -80,6 +81,57 @@ const controller = {
           `${data.first_name} ${data.last_name} updated their profile.`
         );
       }
+
+      return;
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  async updateStatus(req, res, next) {
+    try {
+      const params = req.body;
+      params.user = req.user.currentUser;
+      params.admin_id = params.user._id;
+      params.user_id = req.params.user_id;
+
+      let status;
+
+      if (params.status == false) {
+        status = "Suspended";
+      } else {
+        status = "Activated";
+      }
+
+      // process request
+      const data = await lib.updateStatus(params);
+
+      // response
+      sendResponse(200, "Successful.")(req, res);
+
+      // send email
+      if (status == "Suspended") {
+        notify(
+          {
+            email: true,
+          },
+          "suspend_user",
+          data,
+          data
+        );
+      } else {
+        notify(
+          {
+            email: true,
+          },
+          "activate_user",
+          data,
+          data
+        );
+      }
+
+      // add trail
+      trailsLib.create(req, "users", `${status} a team member.`);
 
       return;
     } catch (error) {

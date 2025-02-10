@@ -1103,12 +1103,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users",
+							"raw": "{{base_url}}/teams",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"users"
+								"teams"
 							]
 						}
 					},
@@ -1128,12 +1128,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/users",
+									"raw": "{{base_url}}/teams",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"users"
+										"teams"
 									]
 								}
 							},
@@ -1196,12 +1196,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/users",
+									"raw": "{{base_url}}/teams",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"users"
+										"teams"
 									]
 								}
 							},
@@ -1253,6 +1253,1167 @@
 				},
 				{
 					"name": "ListTeam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teams",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teams"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "suspended",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "Admin",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "joh",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "date",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "-1",
+									"disabled": true
+								},
+								{
+									"key": "download",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "columns",
+									"value": "name,email,role,status",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-I2R18d64Jh2Qmhegz/xrSobFvuM\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:21:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            },\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams?status=suspended",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended"
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:22:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "role",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams?role=Admin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin"
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:22:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams?search=joh",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh"
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:24:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "order: DESC",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams?filter=date&order=-1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date"
+										},
+										{
+											"key": "order",
+											"value": "-1"
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-I2R18d64Jh2Qmhegz/xrSobFvuM\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:25:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            },\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "order: ASEC",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams?filter=date&order=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date"
+										},
+										{
+											"key": "order",
+											"value": "1"
+										},
+										{
+											"key": "download",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b5-apNcwPKOvXdRFo0S53qnEiFMvaw\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:25:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            },\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "CSV",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams?download=true&columns=name,email,role,status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "suspended",
+											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Admin",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "joh",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "date",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "download",
+											"value": "true"
+										},
+										{
+											"key": "columns",
+											"value": "name,email,role,status"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/csv; charset=utf-8"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=\"team.csv\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"97-dHpjkJxU3FHl9XRz9I+LKpgmzhA\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:26:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Name\",\"Email\",\"Role\",\"Status\"\r\n\"John Doe\",\"john.doe@yopmail.com\",\"Admin\",\"Suspended\"\r\n\"Super Admin\",\"admin.example@yopmail.com\",\"Super Admin\",\"Active\""
+						}
+					]
+				},
+				{
+					"name": "ViewMember",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teams/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teams",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "395"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18b-iozBPrpMQg1bmLZvp4uAvlyUalA\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:49:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"status\": true,\n        \"is_archived\": false,\n        \"photo\": \"https://uatdrive.s3.us-west-002.backblazeb2.com/587228_profile_photo.png\",\n        \"type\": \"Admin\",\n        \"role\": \"Admin\",\n        \"_id\": \"678e5ff3d05382015810317e\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"john.doe@yopmail.com\",\n        \"createdAt\": \"2025-01-20T14:38:43.479Z\",\n        \"updatedAt\": \"2025-01-20T14:38:43.479Z\",\n        \"num\": 2,\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/teams/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-q7JB15CIZ9zF8FuD34VQZQfPqac\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:49:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 404,\n    \"message\": \"Record not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateMember",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teams/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teams",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/teams/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 14:57:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SuspendMember",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teams/{{id}}/update-status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teams",
+								"{{id}}",
+								"update-status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/teams/{{id}}/update-status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams",
+										"{{id}}",
+										"update-status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:11:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ActivateMember",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teams/{{id}}/update-status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teams",
+								"{{id}}",
+								"update-status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/teams/{{id}}/update-status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"teams",
+										"{{id}}",
+										"update-status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 15:19:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "ListUsers",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1374,11 +2535,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "437"
+									"value": "446"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1b5-I2R18d64Jh2Qmhegz/xrSobFvuM\""
+									"value": "W/\"1be-XJYjc+XuWDyQFnXUnIiLkzf97aI\""
 								},
 								{
 									"key": "Vary",
@@ -1386,7 +2547,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 20 Jan 2025 15:21:29 GMT"
+									"value": "Mon, 10 Feb 2025 15:50:44 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1398,7 +2559,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            },\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"67a2085ea9834115cc6dce2f\",\n                \"role\": \"User\",\n                \"email\": \"jane.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-02-04T12:30:22.699Z\",\n                \"name\": \"Jane Doe\",\n                \"status\": true\n            },\n            {\n                \"_id\": \"67a207e2accd357f8022d0eb\",\n                \"role\": \"User\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"phone\": \"+2348160381840\",\n                \"ID\": 1,\n                \"date\": \"2025-02-04T11:21:46.179Z\",\n                \"name\": \"John Doe\",\n                \"status\": false\n            }\n        ]\n    }\n}"
 						},
 						{
 							"name": "status",
@@ -1469,11 +2630,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "269"
+									"value": "293"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+									"value": "W/\"125-6koUvBP8trQWrsrcmLHS9y166UE\""
 								},
 								{
 									"key": "Vary",
@@ -1481,7 +2642,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 20 Jan 2025 15:22:03 GMT"
+									"value": "Mon, 10 Feb 2025 15:50:59 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1493,102 +2654,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
-						},
-						{
-							"name": "role",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/users?role=Admin",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"users"
-									],
-									"query": [
-										{
-											"key": "status",
-											"value": "suspended",
-											"disabled": true
-										},
-										{
-											"key": "role",
-											"value": "Admin"
-										},
-										{
-											"key": "search",
-											"value": "joh",
-											"disabled": true
-										},
-										{
-											"key": "filter",
-											"value": "date",
-											"disabled": true
-										},
-										{
-											"key": "order",
-											"value": "-1",
-											"disabled": true
-										},
-										{
-											"key": "download",
-											"value": "true",
-											"disabled": true
-										},
-										{
-											"key": "columns",
-											"value": "name,email,role,status",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "269"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 20 Jan 2025 15:22:57 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"67a207e2accd357f8022d0eb\",\n                \"role\": \"User\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"phone\": \"+2348160381840\",\n                \"ID\": 1,\n                \"date\": \"2025-02-04T11:21:46.179Z\",\n                \"name\": \"John Doe\",\n                \"status\": false\n            }\n        ]\n    }\n}"
 						},
 						{
 							"name": "search",
@@ -1659,11 +2725,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "269"
+									"value": "293"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"10d-DNwrFo9G9i7fAjiMM4UKDxdPbqs\""
+									"value": "W/\"125-6koUvBP8trQWrsrcmLHS9y166UE\""
 								},
 								{
 									"key": "Vary",
@@ -1671,7 +2737,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 20 Jan 2025 15:24:28 GMT"
+									"value": "Mon, 10 Feb 2025 15:51:19 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1683,7 +2749,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 1,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"67a207e2accd357f8022d0eb\",\n                \"role\": \"User\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"phone\": \"+2348160381840\",\n                \"ID\": 1,\n                \"date\": \"2025-02-04T11:21:46.179Z\",\n                \"name\": \"John Doe\",\n                \"status\": false\n            }\n        ]\n    }\n}"
 						},
 						{
 							"name": "order: DESC",
@@ -1753,11 +2819,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "437"
+									"value": "446"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1b5-I2R18d64Jh2Qmhegz/xrSobFvuM\""
+									"value": "W/\"1be-XJYjc+XuWDyQFnXUnIiLkzf97aI\""
 								},
 								{
 									"key": "Vary",
@@ -1765,7 +2831,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 20 Jan 2025 15:25:08 GMT"
+									"value": "Mon, 10 Feb 2025 15:51:32 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1777,7 +2843,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            },\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"67a2085ea9834115cc6dce2f\",\n                \"role\": \"User\",\n                \"email\": \"jane.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-02-04T12:30:22.699Z\",\n                \"name\": \"Jane Doe\",\n                \"status\": true\n            },\n            {\n                \"_id\": \"67a207e2accd357f8022d0eb\",\n                \"role\": \"User\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"phone\": \"+2348160381840\",\n                \"ID\": 1,\n                \"date\": \"2025-02-04T11:21:46.179Z\",\n                \"name\": \"John Doe\",\n                \"status\": false\n            }\n        ]\n    }\n}"
 						},
 						{
 							"name": "order: ASEC",
@@ -1847,11 +2913,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "437"
+									"value": "446"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1b5-apNcwPKOvXdRFo0S53qnEiFMvaw\""
+									"value": "W/\"1be-IInU7XAKgYZaKemU7OIo+dJDx88\""
 								},
 								{
 									"key": "Vary",
@@ -1859,7 +2925,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 20 Jan 2025 15:25:32 GMT"
+									"value": "Mon, 10 Feb 2025 15:51:42 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1871,7 +2937,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"673308c2c43758b95308f69a\",\n                \"role\": \"Super Admin\",\n                \"email\": \"admin.example@yopmail.com\",\n                \"ID\": 1,\n                \"date\": \"2024-11-12T10:34:22.983Z\",\n                \"status\": true,\n                \"name\": \"Super Admin\"\n            },\n            {\n                \"_id\": \"678e5ff3d05382015810317e\",\n                \"role\": \"Admin\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-01-20T14:38:43.479Z\",\n                \"status\": false,\n                \"name\": \"John Doe\"\n            }\n        ]\n    }\n}"
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\",\n    \"data\": {\n        \"metadata\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"pages\": 1\n        },\n        \"data\": [\n            {\n                \"_id\": \"67a207e2accd357f8022d0eb\",\n                \"role\": \"User\",\n                \"email\": \"john.doe@yopmail.com\",\n                \"phone\": \"+2348160381840\",\n                \"ID\": 1,\n                \"date\": \"2025-02-04T11:21:46.179Z\",\n                \"name\": \"John Doe\",\n                \"status\": false\n            },\n            {\n                \"_id\": \"67a2085ea9834115cc6dce2f\",\n                \"role\": \"User\",\n                \"email\": \"jane.doe@yopmail.com\",\n                \"ID\": 2,\n                \"date\": \"2025-02-04T12:30:22.699Z\",\n                \"name\": \"Jane Doe\",\n                \"status\": true\n            }\n        ]\n    }\n}"
 						},
 						{
 							"name": "CSV",
@@ -1941,15 +3007,15 @@
 								},
 								{
 									"key": "Content-Disposition",
-									"value": "attachment; filename=\"team.csv\""
+									"value": "attachment; filename=\"users.csv\""
 								},
 								{
 									"key": "Content-Length",
-									"value": "151"
+									"value": "135"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"97-dHpjkJxU3FHl9XRz9I+LKpgmzhA\""
+									"value": "W/\"87-+kZtzDeCrshrr5UF+i71iBT5R2g\""
 								},
 								{
 									"key": "Vary",
@@ -1957,7 +3023,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 20 Jan 2025 15:26:30 GMT"
+									"value": "Mon, 10 Feb 2025 15:51:57 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1969,12 +3035,12 @@
 								}
 							],
 							"cookie": [],
-							"body": "\"Name\",\"Email\",\"Role\",\"Status\"\r\n\"John Doe\",\"john.doe@yopmail.com\",\"Admin\",\"Suspended\"\r\n\"Super Admin\",\"admin.example@yopmail.com\",\"Super Admin\",\"Active\""
+							"body": "\"Name\",\"Email\",\"Role\",\"Status\"\r\n\"Jane Doe\",\"jane.doe@yopmail.com\",\"User\",\"Active\"\r\n\"John Doe\",\"john.doe@yopmail.com\",\"User\",\"Suspended\""
 						}
 					]
 				},
 				{
-					"name": "ViewMember",
+					"name": "ViewUser",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -2113,104 +3179,7 @@
 					]
 				},
 				{
-					"name": "UpdateMember",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"role\": \"Admin\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/users/{{id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"users",
-								"{{id}}"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"role\": \"Admin\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/users/{{id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"users",
-										"{{id}}"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "43"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 20 Jan 2025 14:57:30 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
-						}
-					]
-				},
-				{
-					"name": "SuspendMember",
+					"name": "SuspendUser",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -2309,7 +3278,7 @@
 					]
 				},
 				{
-					"name": "ActivateMember",
+					"name": "ActivateUser",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -2350,12 +3319,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/users/{{id}}/update-status",
+									"raw": "{{base_url}}/teams/{{id}}/update-status",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"users",
+										"teams",
 										"{{id}}",
 										"update-status"
 									]
@@ -2392,6 +3361,85 @@
 								{
 									"key": "Date",
 									"value": "Mon, 20 Jan 2025 15:19:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Successful.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-heyHAO75hX4drIpLZahV4Y/hxIk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Feb 2025 15:54:08 GMT"
 								},
 								{
 									"key": "Connection",

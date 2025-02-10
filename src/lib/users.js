@@ -220,6 +220,38 @@ const lib = {
     }
   },
 
+  async updateStatus(params) {
+    try {
+      // eslint-disable-next-line no-undefined
+      if (params.status === undefined) {
+        throw new AppError(400, "'status' is required.");
+      }
+
+      const user = await userModel.findById(params.user_id);
+
+      if (!user) throw new AppError(404, "Record not found.");
+
+      // do not allow current user to update self
+      if (params.admin_id == params.user_id) {
+        throw new AppError(403, "You are not allowed to perform this action.");
+      }
+
+      const update = await userModel.findByIdAndUpdate(params.user_id, {
+        status: params.status,
+      });
+
+      if (!update) throw new AppError(500, "Internal server error.");
+
+      return update;
+    } catch (error) {
+      if (error instanceof AppError) {
+        throw error;
+      } else {
+        throw new AppError(500, "Internal server error.");
+      }
+    }
+  },
+
   async delete(params) {
     try {
       const user = await userModel.findById(params.user_id);
