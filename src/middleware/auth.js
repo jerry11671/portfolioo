@@ -5,7 +5,7 @@ const verifyCAPTCHA = require("../thirdParty/reCAPTCHA");
 const environment = process.env.NODE_ENV;
 const { AppError } = require("./error");
 const { userModel, adminModel } = require("../models");
-const { verifySession, rateLimiter } = require("../thirdParty/redis");
+const { verifySession, rateLimiter } = require("../models/db/redis");
 
 const modelsMap = {
   admin: adminModel,

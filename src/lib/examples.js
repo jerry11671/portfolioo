@@ -1,6 +1,6 @@
 const { listToCsv } = require("../utils/listToCsv");
 
-// const { redisClient, redisCache } = require("../thirdParty/redis");
+// const { redisClient, redisCache } = require("../models/db/redis");
 const { AppError } = require("../middleware/error");
 const { exampleModel } = require("../models");
 const { validateAddOrEdit } = require("./validations/examples");

@@ -25,6 +25,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
+// returns the real client's IP
+// even if client is behind a proxy
 app.set("trust proxy", true);
 
 // data sanitzation against query injection
@@ -33,7 +35,7 @@ app.use(mongoSanitize());
 // compress all payload size
 app.use(compression());
 
-//logging
+// logging
 if (environment == "development") {
   morganBody(app);
 }

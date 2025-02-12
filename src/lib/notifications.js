@@ -13,7 +13,7 @@ const logger = require("../logger");
 
 const lib = {
   async notify(
-    options = { email: false, sms: false, inapp: false },
+    options = { email: false, sms: false, inapp: false, push: false },
     template,
     user = { id: "", email: "", phone: "", type: "" },
     params = {}

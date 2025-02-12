@@ -5,7 +5,7 @@ const { AppError } = require("../middleware/error");
 const { validationModel, adminModel, userModel } = require("../models");
 const { getToken } = require("../utils/auths");
 const { formatPhoneNumber } = require("../utils/helpers");
-const { storeSession } = require("../thirdParty/redis");
+const { storeSession } = require("../models/db/redis");
 
 const {
   validateRegisteration,
