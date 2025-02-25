@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-exports.validateRegisteration = (users) => {
+exports.validateRegistration = (users) => {
   const schema = Joi.object({
     first_name: Joi.string().trim().required().messages({
       "any.required": "First name is required.",

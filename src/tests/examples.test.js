@@ -140,7 +140,7 @@ describe("EXAMPLES", () => {
   });
 
   describe("EDIT", () => {
-    it("should return status 400 if descrption is not entered", async () => {
+    it("should return status 400 if description is not entered", async () => {
       const res = await req
         .patch(`${base_url}/examples/${example._id}`)
         .auth(token, { type: "bearer" })

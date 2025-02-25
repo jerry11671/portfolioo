@@ -18,7 +18,7 @@ router.get("/users", isLoggedInAdmin, read);
 // view user
 router.get("/users/:user_id", isLoggedInAdmin, readSingle);
 
-// suspend/acivate user
+// suspend/activate user
 router.patch(
   "/users/:user_id/update-status",
   isLoggedInSuperAdmin,

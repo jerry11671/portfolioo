@@ -8,8 +8,8 @@ const {
 
 const {
   registerUser,
-  resendRegisterationVerificationCode,
-  validateRegisterationToken,
+  resendRegistrationVerificationCode,
+  validateRegistrationToken,
   login,
   forgotPassword,
   validateResetPasswordToken,
@@ -28,13 +28,13 @@ router.post(
 router.post(
   "/auths/register/resend-code",
   setAppParam,
-  resendRegisterationVerificationCode
+  resendRegistrationVerificationCode
 );
 
 router.post(
   "/auths/register/validate-code",
   setAppParam,
-  validateRegisterationToken
+  validateRegistrationToken
 );
 
 // login screen

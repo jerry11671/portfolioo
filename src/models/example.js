@@ -32,7 +32,7 @@ const exampleModel = new mongoose.Schema(
 );
 
 /**
- * This sets autoincrement numeric counter for the collection giving you 1, 2, 3...n
+ * This sets auto-increment numeric counter for the collection giving you 1, 2, 3...n
  */
 
 exampleModel.plugin(AutoIncrement, {

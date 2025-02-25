@@ -237,7 +237,8 @@ const lib = {
           ],
         });
 
-        if (email_taken) throw new AppError(409, "Email address aready taken.");
+        if (email_taken)
+          throw new AppError(409, "Email address already taken.");
       }
 
       const update_member = await adminModel.findByIdAndUpdate(params.user_id, {

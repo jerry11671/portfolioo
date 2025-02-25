@@ -8,7 +8,7 @@ const { formatPhoneNumber } = require("../utils/helpers");
 const { storeSession } = require("../models/db/redis");
 
 const {
-  validateRegisteration,
+  validateRegistration,
   validateId,
   validateLogin,
   validateOTP,
@@ -37,7 +37,7 @@ const appMap = {
 };
 
 const lib = {
-  // RGISTER
+  // REGISTER
   async processRegisterUser(params) {
     try {
       // check if user exists
@@ -47,7 +47,7 @@ const lib = {
         throw new AppError(409, "Account already exists.");
       }
 
-      // delete previous/pendig validation document if user is yet to verify their email
+      // delete previous/pending validation document if user is yet to verify their email
       const pending_validation = await validationModel.findOne({
         email: params.id,
         "is_verified.status": false,
@@ -92,7 +92,7 @@ const lib = {
   },
 
   async registerUser(params) {
-    const { error } = validateRegisteration(params);
+    const { error } = validateRegistration(params);
 
     if (error) {
       throw new AppError(400, error.details[0].message);
@@ -117,7 +117,7 @@ const lib = {
   },
 
   //  REGISTER- RESEND VERIFICATION CODE
-  async resendRegisterationVerificationCode(params) {
+  async resendRegistrationVerificationCode(params) {
     try {
       const { error } = validateId(params);
 
@@ -173,8 +173,8 @@ const lib = {
     }
   },
 
-  // REGISTER - VALIDATE TOKEN & COMPLETE REGISTERATION
-  async validateRegisterationToken(params) {
+  // REGISTER - VALIDATE TOKEN & COMPLETE REGISTRATION
+  async validateRegistrationToken(params) {
     try {
       const { error } = validateOTP(params);
 
@@ -202,7 +202,7 @@ const lib = {
 
       if (!expiry_time) throw new AppError(498, "OTP Expired.");
 
-      // complete registeration
+      // complete registration
       const user = await userModel.create({
         first_name: validation_document.first_name,
         last_name: validation_document.last_name,

@@ -2,6 +2,7 @@ const {
   createExample,
   createAdmin,
   createUser,
+  createNotification,
   createTrail,
 } = require("./createData");
 
@@ -11,6 +12,7 @@ module.exports = {
   createExample,
   createAdmin,
   createUser,
+  createNotification,
   createTrail,
   connectDB,
   disconnectDB,

@@ -18,7 +18,7 @@ const csv = {
 
     const columns = [];
 
-    // trim and remove unwanted charachers form columnsQuery
+    // trim and remove unwanted characters form columnsQuery
     // then push to columns
     for (const element of columnsQuery) {
       let values;
@@ -40,12 +40,12 @@ const csv = {
 
     // loop through array of columns
     for (const element of columns) {
-      // set field lablel and value for each column
+      // set field label and value for each column
       let label;
       const value = element;
 
-      // capilatize each word in a label
-      const caplitalize_each_word = (label) => {
+      // capitalize each word in a label
+      const capitalize_each_word = (label) => {
         const header = label.split("_");
 
         for (let i = 0; i < header.length; i++) {
@@ -56,7 +56,7 @@ const csv = {
       };
 
       label = element;
-      label = caplitalize_each_word(label);
+      label = capitalize_each_word(label);
 
       // push object containing label and value to fields
       fields.push({

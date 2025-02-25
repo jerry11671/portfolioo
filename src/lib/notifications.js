@@ -143,7 +143,7 @@ const lib = {
     }
   },
 
-  async checkNotificationAvailablility(params) {
+  async checkNotificationAvailability(params) {
     try {
       let count_unread;
 

@@ -55,12 +55,12 @@ const controllers = {
     }
   },
 
-  async checkNotificationAvailablility(req, res, next) {
+  async checkNotificationAvailability(req, res, next) {
     try {
       const params = req.params;
       params.user = req.user.currentUser;
 
-      const data = await lib.checkNotificationAvailablility(params);
+      const data = await lib.checkNotificationAvailability(params);
 
       return sendResponse(200, "Successful", data)(req, res);
     } catch (error) {

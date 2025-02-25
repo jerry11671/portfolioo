@@ -79,10 +79,10 @@ const uploadManyToS3 = async (files) => {
 };
 
 // delete file from S3
-const deleteSingleFromS3 = async (objecKey) => {
+const deleteSingleFromS3 = async (objectKey) => {
   const command = new DeleteObjectCommand({
     Bucket: process.env.STORAGE_BUCKET_NAME,
-    Key: objecKey,
+    Key: objectKey,
   });
 
   try {

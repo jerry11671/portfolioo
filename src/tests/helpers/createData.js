@@ -4,6 +4,7 @@ const {
   exampleModel,
   adminModel,
   userModel,
+  notificationModel,
   trailModel,
 } = require("../../models/index");
 
@@ -47,6 +48,20 @@ const helpers = {
     user = await user.save();
 
     return user;
+  },
+
+  async createNotification() {
+    const user = await helpers.createUser();
+
+    let notification = new notificationModel({
+      user_id: user._id,
+      title: "Example title",
+      description: "Example description",
+    });
+
+    notification = await notification.save();
+
+    return notification;
   },
 
   async createTrail() {

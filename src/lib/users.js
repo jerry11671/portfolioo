@@ -185,7 +185,8 @@ const lib = {
           ],
         });
 
-        if (email_taken) throw new AppError(409, "Email address aready taken.");
+        if (email_taken)
+          throw new AppError(409, "Email address already taken.");
       }
 
       if (params.phone) {
@@ -197,7 +198,7 @@ const lib = {
           ],
         });
 
-        if (phone_taken) throw new AppError(409, "Phone number aready taken.");
+        if (phone_taken) throw new AppError(409, "Phone number already taken.");
       }
 
       const update_user = await userModel.findByIdAndUpdate(

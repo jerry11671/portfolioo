@@ -5,7 +5,7 @@ const { isLoggedIn } = require("../../../middleware/auth");
 const {
   read,
   sendPush,
-  checkNotificationAvailablility,
+  checkNotificationAvailability,
   deleteSingle,
 } = require("../../../controllers/notifications");
 
@@ -16,7 +16,7 @@ router.post("/notifications/send-push", isLoggedIn, sendPush);
 router.get(
   "/notifications/availability",
   isLoggedIn,
-  checkNotificationAvailablility
+  checkNotificationAvailability
 );
 
 router.delete("/notifications/:notification_id", isLoggedIn, deleteSingle);

@@ -4,7 +4,7 @@ const { isLoggedInAdmin } = require("../../../middleware/auth");
 
 const {
   read,
-  checkNotificationAvailablility,
+  checkNotificationAvailability,
   deleteSingle,
 } = require("../../../controllers/notifications");
 
@@ -13,7 +13,7 @@ router.get("/notifications", isLoggedInAdmin, read);
 router.get(
   "/notifications/availability",
   isLoggedInAdmin,
-  checkNotificationAvailablility
+  checkNotificationAvailability
 );
 
 router.delete("/notifications/:notification_id", isLoggedInAdmin, deleteSingle);

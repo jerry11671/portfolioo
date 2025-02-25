@@ -29,7 +29,7 @@ router.get("/teams/:user_id", isLoggedInAdmin, readSingle);
 // edit team member screen
 router.patch("/teams/:user_id", isLoggedInSuperAdmin, update);
 
-// suspend/acivate team member
+// suspend/activate team member
 router.patch(
   "/teams/:user_id/update-status",
   isLoggedInSuperAdmin,

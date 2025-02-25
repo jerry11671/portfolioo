@@ -15,8 +15,8 @@ let sendMail;
 
 if (environment == "production") {
   sendMail = sendMail = async (options) => {
-    // create transpoter
-    const transpot = nodemailer.createTransport({
+    // create transporter
+    const transport = nodemailer.createTransport({
       host: smtp_host,
       port: smtp_port,
       auth: {
@@ -43,7 +43,7 @@ if (environment == "production") {
     };
 
     // send mail
-    await transpot.sendMail(mailOptions);
+    await transport.sendMail(mailOptions);
   };
 } else {
   SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =

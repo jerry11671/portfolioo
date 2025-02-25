@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 // even if client is behind a proxy
 app.set("trust proxy", true);
 
-// data sanitzation against query injection
+// data sanitization against query injection
 app.use(mongoSanitize());
 
 // compress all payload size

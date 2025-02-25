@@ -32,14 +32,14 @@ const controller = {
     }
   },
 
-  // RGISTER- RESEND VALIDATION TOKEN
-  async resendRegisterationVerificationCode(req, res, next) {
+  // REGISTER- RESEND VALIDATION TOKEN
+  async resendRegistrationVerificationCode(req, res, next) {
     try {
       // request
       const params = req.body;
 
       // process request
-      const data = await lib.resendRegisterationVerificationCode(params);
+      const data = await lib.resendRegistrationVerificationCode(params);
 
       // response
       sendResponse(200, "Successful.")(req, res);
@@ -60,14 +60,14 @@ const controller = {
     }
   },
 
-  // REGISTER-  VALIDATE TOKEN & COMPLETE REGISTERATION
-  async validateRegisterationToken(req, res, next) {
+  // REGISTER-  VALIDATE TOKEN & COMPLETE REGISTRATION
+  async validateRegistrationToken(req, res, next) {
     try {
       // request
       const params = req.body;
 
       // process request
-      const data = await lib.validateRegisterationToken(params);
+      const data = await lib.validateRegistrationToken(params);
 
       // response
       sendResponse(200, "Successful.")(req, res);
@@ -77,7 +77,7 @@ const controller = {
         {
           email: true,
         },
-        "registeration_completed",
+        "registration_completed",
         data,
         data
       );
