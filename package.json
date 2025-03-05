@@ -7,6 +7,7 @@
     "start": "infisical run --env=prod --path=/monolithic-setup -- node server.js",
     "dev": "infisical run --env=dev --path=/monolithic-setup -- nodemon server.js",
     "test": "jest --runInBand --detectOpenHandles --watchAll",
+    "test-workflow": "jest --runInBand --detectOpenHandles",
     "uat": "infisical run --env=staging --path=/monolithic-setup -- nodemon server.js"
   },
   "jest": {
