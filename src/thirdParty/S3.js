@@ -20,7 +20,27 @@ const s3Client = new S3Client({
     secretAccessKey: process.env.STORAGE_KEY_SECRET,
   },
   endpoint: process.env.S3_ENDPOINT,
+  requestChecksumCalculation: "WHEN_REQUIRED",
+  responseChecksumCalculation: "WHEN_REQUIRED",
 });
+
+// middleware to remove unsupported checksum headers
+s3Client.middlewareStack.add(
+  (next) => async (args) => {
+    if (args.request && args.request.headers) {
+      delete args.request.headers["x-amz-checksum-crc32"];
+      delete args.request.headers["x-amz-checksum-crc32c"];
+      delete args.request.headers["x-amz-checksum-sha1"];
+      delete args.request.headers["x-amz-checksum-sha256"];
+    }
+    return next(args);
+  },
+  {
+    step: "build",
+    name: "removeChecksumHeadersMiddleware",
+    priority: "high",
+  }
+);
 
 // upload many to S3
 const uploadManyToS3 = async (files) => {
