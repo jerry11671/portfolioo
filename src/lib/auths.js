@@ -21,6 +21,7 @@ const salt_round = process.env.SALT_ROUND;
 const adminLib = require("./admins");
 const userLib = require("./users");
 const OTP = require("../utils/OTP");
+const { asyncLibWrapper } = require("../utils/wrappers");
 moment().format();
 
 const appMap = {
@@ -227,50 +228,87 @@ const lib = {
   },
 
   // LOGIN
-  async processLogin({ params, userExistFn }) {
-    try {
-      // find the user and include the password field
-      const user_properties = "+password";
-      const user = await userExistFn(params.id, user_properties);
+  processLogin: asyncLibWrapper(async ({ params, userExistFn }) => {
+    // find the user and include the password field
+    const user_properties = "+password";
+    const user = await userExistFn(params.id, user_properties);
 
-      if (!user || !user.password) {
-        throw new AppError(
-          400,
-          "Incorrect login credentials. Please check and try again."
-        );
-      }
-
-      if (!user.status) throw new AppError(403, "Account restricted.");
-
-      // validate password
-      const valid_password = bcrypt.compareSync(params.password, user.password);
-
-      if (!valid_password) {
-        throw new AppError(
-          400,
-          "Incorrect login credentials. Please check and try again."
-        );
-      }
-
-      user.password = null;
-      const token = getToken(user);
-
-      await storeSession(user._id, token);
-
-      return {
-        user,
-        token,
-      };
-    } catch (error) {
-      if (error instanceof AppError) {
-        throw error;
-      } else {
-        throw new AppError(500, "Internal server error.");
-      }
+    if (!user || !user.password) {
+      throw new AppError(
+        400,
+        "Incorrect login credentials. Please check and try again."
+      );
     }
-  },
 
-  async login(params) {
+    if (!user.status) throw new AppError(403, "Account restricted.");
+
+    // validate password
+    const valid_password = bcrypt.compareSync(params.password, user.password);
+
+    if (!valid_password) {
+      throw new AppError(
+        400,
+        "Incorrect login credentials. Please check and try again."
+      );
+    }
+
+    user.password = null;
+    const token = getToken(user);
+
+    await storeSession(user._id, token);
+
+    return {
+      user,
+      token,
+    };
+
+  }),
+
+  // LOGIN
+  // async processLogin({ params, userExistFn }) {
+  //   try {
+  //     // find the user and include the password field
+  //     const user_properties = "+password";
+  //     const user = await userExistFn(params.id, user_properties);
+
+  //     if (!user || !user.password) {
+  //       throw new AppError(
+  //         400,
+  //         "Incorrect login credentials. Please check and try again."
+  //       );
+  //     }
+
+  //     if (!user.status) throw new AppError(403, "Account restricted.");
+
+  //     // validate password
+  //     const valid_password = bcrypt.compareSync(params.password, user.password);
+
+  //     if (!valid_password) {
+  //       throw new AppError(
+  //         400,
+  //         "Incorrect login credentials. Please check and try again."
+  //       );
+  //     }
+
+  //     user.password = null;
+  //     const token = getToken(user);
+
+  //     await storeSession(user._id, token);
+
+  //     return {
+  //       user,
+  //       token,
+  //     };
+  //   } catch (error) {
+  //     if (error instanceof AppError) {
+  //       throw error;
+  //     } else {
+  //       throw new AppError(500, "Internal server error.");
+  //     }
+  //   }
+  // },
+
+  login: asyncLibWrapper(async (params) => {
     const { error } = validateLogin(params);
 
     if (error) {
@@ -294,7 +332,33 @@ const lib = {
     });
 
     return login;
-  },
+  }),
+
+  // async login(params) {
+  //   const { error } = validateLogin(params);
+
+  //   if (error) {
+  //     throw new AppError(400, error.details[0].message);
+  //   }
+
+  //   params.id = params.id.trim().toLowerCase();
+
+  //   const app_config = appMap[params.app];
+
+  //   let userExistFn;
+
+  //   if (app_config) {
+  //     params.type = app_config.type;
+  //     userExistFn = app_config.userExistFn;
+  //   }
+
+  //   const login = await lib.processLogin({
+  //     params: params,
+  //     userExistFn: userExistFn,
+  //   });
+
+  //   return login;
+  // },
 
   // FORGOT PASSWORD - GENERATE RESET PASSWORD VERIFICATION CODE
   async processGenerateResetPasswordToken({ id, Model }) {

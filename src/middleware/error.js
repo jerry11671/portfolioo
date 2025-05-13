@@ -10,7 +10,7 @@ class AppError extends Error {
 
 const handleError = (err, req, res) => {
   const { status_code = 500, message } = err;
-
+ 
   sendResponse(status_code, message)(req, res);
 };
 

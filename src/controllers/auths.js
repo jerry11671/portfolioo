@@ -3,6 +3,7 @@ const lib = require("../lib/auths");
 const trailsLib = require("../lib/trails");
 const { notify } = require("../lib/notifications");
 const { sendResponse } = require("../utils/helpers");
+const { asyncControllerWrapper } = require("../utils/wrappers");
 
 const controller = {
   async registerUser(req, res, next) {
@@ -88,19 +89,29 @@ const controller = {
     }
   },
 
-  async login(req, res, next) {
-    try {
-      // request
-      const params = req.body;
+  // async login(req, res, next) {
+  //   try {
+  //     // request
+  //     const params = req.body;
 
-      // process request
-      const data = await lib.login(params);
+  //     // process request
+  //     const data = await lib.login(params);
 
-      return sendResponse(200, "Successful.", data)(req, res);
-    } catch (error) {
-      next(error);
-    }
-  },
+  //     return sendResponse(200, "Successful.", data)(req, res);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // },
+
+  login: asyncControllerWrapper(async (req, res) => {
+    // request
+    const params = req.body;
+    
+    // process request
+    const data = await lib.login(params);
+
+    return sendResponse(200, "Successful.", data)(req, res);
+  }),
 
   // FORGOT PASSWORD - SEND RESET PASSWORD VERIFICATION CODE
   async forgotPassword(req, res, next) {
