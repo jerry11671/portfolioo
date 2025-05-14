@@ -11,6 +11,10 @@ const environment = process.env.NODE_ENV;
 const cors = require("cors");
 const { handleError } = require("./src/middleware/error");
 
+// passport.js imports
+const passport = require("passport");
+const session = require("express-session");
+
 // disable console methods globally
 /* eslint-disable no-empty-function */
 /* eslint-disable no-console */
@@ -22,6 +26,20 @@ console.error = function () {};
 /* eslint-enable no-empty-function */
 
 const app = express();
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'mySuperSecret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
+  },
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.json());
 

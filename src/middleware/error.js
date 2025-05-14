@@ -1,4 +1,5 @@
 const { sendResponse } = require("../utils/helpers");
+// const logger = require("../logger");
 
 class AppError extends Error {
   constructor(status_code, message) {

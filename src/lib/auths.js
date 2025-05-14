@@ -5,7 +5,7 @@ const { AppError } = require("../middleware/error");
 const { validationModel, adminModel, userModel } = require("../models");
 const { getToken } = require("../utils/auths");
 const { formatPhoneNumber } = require("../utils/helpers");
-const { storeSession } = require("../models/db/redis");
+// const { storeSession } = require("../models/db/redis");
 
 const {
   validateRegistration,
@@ -255,7 +255,7 @@ const lib = {
       user.password = null;
       const token = getToken(user);
 
-      await storeSession(user._id, token);
+      // await storeSession(user._id, token);
 
       return {
         user,
@@ -292,7 +292,7 @@ const lib = {
       params: params,
       userExistFn: userExistFn,
     });
-
+    
     return login;
   },
 

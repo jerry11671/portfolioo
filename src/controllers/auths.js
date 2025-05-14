@@ -4,6 +4,9 @@ const trailsLib = require("../lib/trails");
 const { notify } = require("../lib/notifications");
 const { sendResponse } = require("../utils/helpers");
 
+
+
+
 const controller = {
   async registerUser(req, res, next) {
     try {
@@ -90,13 +93,10 @@ const controller = {
 
   async login(req, res, next) {
     try {
-      // request
-      const params = req.body;
+      const data = req.user;
 
-      // process request
-      const data = await lib.login(params);
-
-      return sendResponse(200, "Successful.", data)(req, res);
+      // response
+      sendResponse(200, "Successful.", data)(req, res);
     } catch (error) {
       next(error);
     }

@@ -1,3 +1,4 @@
+require("../../../strategies/local-strategy");
 const router = require("express").Router();
 
 const {
@@ -16,6 +17,8 @@ const {
   resetPassword,
   changePassword,
 } = require("../../../controllers/auths");
+
+const passport = require("passport");
 
 // register screen
 router.post(
@@ -38,7 +41,9 @@ router.post(
 );
 
 // login screen
-router.post("/auths/login", setAppParam, validateGoogleRecaptchaToken, login);
+// router.post("/auths/login", setAppParam, validateGoogleRecaptchaToken, login);
+
+router.post("/auths/login", setAppParam, validateGoogleRecaptchaToken, passport.authenticate("local", {session: true}), login);
 
 // forgot-password screen
 router.post(
