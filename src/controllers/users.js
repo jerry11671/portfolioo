@@ -57,8 +57,8 @@ const controller = {
       delete params.reset_password;
       delete params.createdAt;
 
-      params.user_id = req.user.currentUser._id;
-      params.user_email = req.user.currentUser.email;
+      params.user_id = req.user._id;
+      params.user_email = req.user.email;
 
       // process request
       const data = await lib.update(params);

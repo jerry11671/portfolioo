@@ -4,8 +4,7 @@ const trailsLib = require("../lib/trails");
 const { notify } = require("../lib/notifications");
 const { sendResponse } = require("../utils/helpers");
 
-
-
+const {getToken} = require("../utils/auths");
 
 const controller = {
   async registerUser(req, res, next) {
@@ -93,7 +92,11 @@ const controller = {
 
   async login(req, res, next) {
     try {
-      const data = req.user;
+      const user = req.user;
+
+      const token = getToken(user);
+
+      const data = {user, token};
 
       // response
       sendResponse(200, "Successful.", data)(req, res);

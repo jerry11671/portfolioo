@@ -43,7 +43,7 @@ router.post(
 // login screen
 // router.post("/auths/login", setAppParam, validateGoogleRecaptchaToken, login);
 
-router.post("/auths/login", setAppParam, validateGoogleRecaptchaToken, passport.authenticate("local", {session: true}), login);
+router.post("/auths/login", setAppParam, passport.authenticate("local", {session: true}), login);
 
 // forgot-password screen
 router.post(

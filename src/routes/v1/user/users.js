@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+const passport = require("passport");
+
 const { isLoggedIn } = require("../../../middleware/auth");
 
 const {
@@ -12,7 +14,8 @@ const {
 router.get("/me", isLoggedIn, readSingle);
 
 // update profile
-router.patch("/me", isLoggedIn, update);
+// router.patch("/me", isLoggedIn, update);
+router.patch("/me", passport.authenticate("jwt", {session: true}), update);
 
 router.delete("/me", isLoggedIn, deleteSingle);
 

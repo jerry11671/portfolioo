@@ -3,15 +3,11 @@ const passport = require("passport");
 const {Strategy} = require("passport-local");
 const JWTStrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
-
-const authLib = () => require("../lib/auths");
-
-const userLib = () => require("../lib/users");
+const bcrypt = require("bcrypt");
 
 const {userModel} = require("../models");
 
 const JWT_SECRET = process.env.SECRET_KEY;
-
 
 passport.serializeUser((user, done) => {
 	done(null, user);
@@ -19,7 +15,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
 	try {
-		const find_user = await userLib().readSingle({user_id: id});
+		const find_user = await userModel.findOne({email: id});
 		done(null, find_user);
 	} catch (err) {
 		done(err, null);
@@ -31,16 +27,25 @@ passport.use(
     {
       usernameField: "id",
       passwordField: "password",
-      passReqToCallback: true,
     },
-    async (req, id, password, done) => {
+    async (id, password, done) => {
       try {
-        const params = req.body;
+        const user = await userModel.findOne({ email: id }).select("+password");
 
-        const { user, token } = await authLib().login(params);
+        if (!user) {
+          return done(null, false, { message: "Incorrect login credentials, try again." });
+        }
 
-        user["token"] = token;
-        require("../logger").error(token);
+        const is_password_correct = bcrypt.compareSync(password, user.password);
+  
+        if (!is_password_correct) {
+          return done(null, false, { message: "Incorrect login credentials, try again." });
+        }
+
+        if (!user.status) {
+          return done(null, false, { message: "Account restricted. Please contact support." });
+        }
+        
         return done(null, user);
       } catch (error) {
         return done(error, null);
@@ -56,9 +61,9 @@ passport.use(
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
       secretOrKey: JWT_SECRET,
     },
-    async (jwtPayload, done) => {
+    async (payload, done) => {
       try {
-        const user = await userModel.findById(jwtPayload._id);
+        const user = await userModel.findOne({ email: payload.currentUser.email });
         return done(null, user || false);
       } catch (err) {
         return done(err, false);
